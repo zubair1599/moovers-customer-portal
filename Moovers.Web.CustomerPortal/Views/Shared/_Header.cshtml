@@ -1,0 +1,79 @@
+﻿@model Business.ViewModels.HeaderModel
+
+<div id="header-tabs" class="no-mobile">
+    <div id="header-tab-panel">
+        <ul class="right nav" data-dropdown="dropdown">
+            <li class="dropdown">
+                <a id="username" class="dropdown-toggle right" data-toggle="dropdown">
+                    @User.Identity.Name
+                    <i class="icon-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Settings", "Settings", new { Controller = "Home" }, new { @class = Model.ParentMenu == "Login" ? "selected" : "", tabindex = "-1" })</li>
+                    @if (ViewBag.ShowAdmin)
+                    {
+
+                        <li class="@(Model.ParentMenu == "Admin" ? "selected" : "")">
+                            @Html.ActionLink("Admin", "Index", new { Controller = "Admin" }, new { tabindex = "-1" })
+                        </li>
+                    }
+                    <li>@Html.ActionLink("Logout", "LogOff", new { Controller = "Login" }, new { tabindex = "-1" })</li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="right">
+            @using (Html.BeginForm("Index", "Quote", FormMethod.Get))
+            {
+
+                <div class="form-item form-item-text" id="navmenui-search-container">
+                    <input name="search" type="text" class="form-text form-text form-searchi validate[optional,Generic] form-searchi-inverted" id="navmenui-search" onsubmit="return false;" placeholder="Search..." tabindex="-1" />
+                </div>
+
+                <input type="submit" style="position: absolute; left: -99999px; top: -99999px;" />
+            }
+        </div>
+
+        <div class="right today-date-picker">
+            @{ var day = DateTime.Now; }
+            @Html.ActionLink(day.ToShortDateString(), "ViewDay", new { Controller = "Schedule", day = day.Day, month = day.Month, year = day.Year })
+        </div>
+
+        <ul class="left nav" data-dropdown="dropdown" style="padding-left: 7px;">
+            @*<li id="logo" title="Moovers"><a href="@Url.Action("Index", "Home")" tabindex="-1"></a></li>*@
+
+
+            <li class="@(Model.ParentMenu == "Profile" ? "selected" : "")">
+                @Html.ActionLink("Profile", "Index", new { Controller = "Case" }, new { tabindex = "-1" })
+            </li>
+
+
+            @if (ViewBag.ShowQuotes)
+            {
+
+                <li class="@(Model.ParentMenu == "quote" ? "selected" : "") dropdown">
+                    @Html.ActionLink("Quotes", "Index", new { Controller = "Quote" }, new { @class = "dropdown-toggle", tabindex = "-1" })
+                </li>
+            }
+
+
+
+            <li></li>
+        </ul>
+    </div>
+</div>
+
+<ul class="mobile-tabs mobile-only noprint">
+    <li id="mobile-search-box">
+        @using (Html.BeginForm("Index", "Quote", FormMethod.Get))
+        {
+
+            <input name="search" type="search" onsubmit="return false;" placeholder="Search..." tabindex="-1" />
+
+            <input type="submit" class="jank-hide" />
+        }
+    </li>
+    <li>
+        @Html.ActionLink(day.ToShortDateString(), "ViewDay", new { Controller = "Schedule", day = day.Day, month = day.Month, year = day.Year })
+    </li>
+</ul>

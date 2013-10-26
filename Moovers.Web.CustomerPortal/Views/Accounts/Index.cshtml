@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "~/Views/Shared/Public.cshtml";
+}
+
+
+@*@model Guid?  
+@{
+    ViewBag.Title = "Accounts";
+    ViewBag.SubMenu = "Accounts";
+    ViewBag.ParentMenu = "Accounts";
+}*@
+@model Business.ViewModels.PersonAccountModel
+
+@*@Html.ValidationSummary()*@
+@Html.Partial("_CreatePerson")
+@*@Html.Partial("_CreateBusiness", new Business.ViewModels.BusinessAccountModel())*@
+
+
+
+
+@using (Html.BeginTemplate("account-menu-template"))
+{
+    <tr class="account" data-accountid="{{- AccountID }}" data-type="{{- Type }}">
+        <td class="w60">
+            <a href="@Url.Content("~/Accounts/Index/"){{- AccountID }}">{{- Name }}</a>
+
+        </td>
+        <td class="address text-right">
+            {{- City }}, {{- State }}
+        </td>
+    </tr>
+}
+
+
+
+@using (Html.BeginTemplate("businessheader-account-template"))
+{
+    <h3>{{- DisplayName }}</h3>
+    <a href="#" data-type="Business" class="add-account button button-black">Edit</a>
+    <span class="detail">
+        {{- ViewBusinessType }}
+    </span>
+    <span id="acct-num">{{- Lookup }}</span>
+}
+
+@using (Html.BeginTemplate("personheader-account-template"))
+{
+    <h3>{{- DisplayName }}</h3>
+    <a href="#" data-type="Person" class="add-account button button-black">Edit</a>
+    <span id="acct-num">{{- Lookup }}</span>
+}
+
+<script type="text/javascript">
+
+   
+    $(document).ready(function () {
+
+        var accountid = ""; 
+         Accounts.init(accountid);
+     });
+</script>

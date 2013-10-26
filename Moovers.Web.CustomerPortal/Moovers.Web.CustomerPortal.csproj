@@ -1,0 +1,1351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{741431E2-8E33-40E7-8A3B-15D4D1B5F467}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Moovers.Web.CustomerPortal</RootNamespace>
+    <AssemblyName>Moovers.Web.CustomerPortal</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Business, Version=1.0.0.41052, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Business.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=4.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentValidation.4.0.0.1\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.0.3.12153\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\AddressController.cs" />
+    <Compile Include="Controllers\BaseControllers\BaseController.cs" />
+    <Compile Include="Controllers\CaseController.cs" />
+    <Compile Include="Controllers\BaseControllers\NonSecureBaseController.cs" />
+    <Compile Include="Controllers\BaseControllers\SecureBaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\NewCaseController.cs" />
+    <Compile Include="Controllers\PublicController.cs" />
+    <Compile Include="Controllers\QuoteController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="HtmlPage1.html" />
+    <Content Include="ResourceList.targets">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="static\css-plugins\arrows.png" />
+    <Content Include="static\css-plugins\bootstrap-jasny.css">
+      <DependentUpon>bootstrap-jasny.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css-plugins\bootstrap-select.css">
+      <DependentUpon>bootstrap-select.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css-plugins\bootstrap.css">
+      <DependentUpon>bootstrap.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css-plugins\close.png" />
+    <Content Include="static\css-plugins\font-awesome.css">
+      <DependentUpon>font-awesome.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css-plugins\full-calendar.css">
+      <DependentUpon>full-calendar.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css-plugins\kalendae.css" />
+    <Content Include="static\css-plugins\reset.css">
+      <DependentUpon>reset.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\accounts.css">
+      <DependentUpon>accounts.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\admin.css">
+      <DependentUpon>admin.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\base.css">
+      <DependentUpon>base.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\claims.css">
+      <DependentUpon>claims.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\confirm.css">
+      <DependentUpon>confirm.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\employees.css">
+      <DependentUpon>employees.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\hacks.css">
+      <DependentUpon>hacks.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\header.css">
+      <DependentUpon>header.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\iphone.css">
+      <DependentUpon>iphone.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\login.css">
+      <DependentUpon>login.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\mixins.css">
+      <DependentUpon>mixins.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\payrollsummary.css">
+      <DependentUpon>payrollsummary.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\PDF\contract.css">
+      <DependentUpon>contract.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\PDF\invoice.css">
+      <DependentUpon>invoice.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\PDF\proposal.css">
+      <DependentUpon>proposal.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\PDF\statement.css">
+      <DependentUpon>statement.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\PDF\workorder.css">
+      <DependentUpon>workorder.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\posting.css">
+      <DependentUpon>posting.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\print.css">
+      <DependentUpon>print.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\quote-manager.css">
+      <DependentUpon>quote-manager.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\quote.css">
+      <DependentUpon>quote.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\screen.css">
+      <DependentUpon>screen.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\stats.css">
+      <DependentUpon>stats.scss</DependentUpon>
+    </Content>
+    <Content Include="static\css\storage.css">
+      <DependentUpon>storage.scss</DependentUpon>
+    </Content>
+    <Content Include="static\font\fontawesome-webfont.svg" />
+    <Content Include="static\font\openwebicons.svg" />
+    <Content Include="static\img\10x10sprite.png" />
+    <Content Include="static\img\16x16sprite.png" />
+    <Content Include="static\img\ajax-loader-dark.gif" />
+    <Content Include="static\img\ajax-loader.gif" />
+    <Content Include="static\img\checkmark.png" />
+    <Content Include="static\img\chosen-sprite.png" />
+    <Content Include="static\img\clock.png" />
+    <Content Include="static\img\cvv2_pop.gif" />
+    <Content Include="static\img\dollar-sign.png" />
+    <Content Include="static\img\draggable.png" />
+    <Content Include="static\img\employee-photo.jpg" />
+    <Content Include="static\img\facebook.jpg" />
+    <Content Include="static\img\footerLogo.png" />
+    <Content Include="static\img\footer_bg2.jpg" />
+    <Content Include="static\img\glyphicons-halflings-white.png" />
+    <Content Include="static\img\glyphicons-halflings.png" />
+    <Content Include="static\img\headerLogo.png" />
+    <Content Include="static\img\headerLogoLarge.png" />
+    <Content Include="static\img\headerLogoSmall.png" />
+    <Content Include="static\img\header_bg_slice.jpg" />
+    <Content Include="static\img\icon-sprite.png" />
+    <Content Include="static\img\invoice_header.jpg" />
+    <Content Include="static\img\loader.gif" />
+    <Content Include="static\img\logo-crm-grey.png" />
+    <Content Include="static\img\logo-crm.png" />
+    <Content Include="static\img\logos\kc.png" />
+    <Content Include="static\img\logos\stl.png" />
+    <Content Include="static\img\mapicons\darkblue\number_0.png" />
+    <Content Include="static\img\mapicons\darkblue\number_1.png" />
+    <Content Include="static\img\mapicons\darkblue\number_10.png" />
+    <Content Include="static\img\mapicons\darkblue\number_100.png" />
+    <Content Include="static\img\mapicons\darkblue\number_11.png" />
+    <Content Include="static\img\mapicons\darkblue\number_12.png" />
+    <Content Include="static\img\mapicons\darkblue\number_13.png" />
+    <Content Include="static\img\mapicons\darkblue\number_14.png" />
+    <Content Include="static\img\mapicons\darkblue\number_15.png" />
+    <Content Include="static\img\mapicons\darkblue\number_16.png" />
+    <Content Include="static\img\mapicons\darkblue\number_17.png" />
+    <Content Include="static\img\mapicons\darkblue\number_18.png" />
+    <Content Include="static\img\mapicons\darkblue\number_19.png" />
+    <Content Include="static\img\mapicons\darkblue\number_2.png" />
+    <Content Include="static\img\mapicons\darkblue\number_20.png" />
+    <Content Include="static\img\mapicons\darkblue\number_21.png" />
+    <Content Include="static\img\mapicons\darkblue\number_22.png" />
+    <Content Include="static\img\mapicons\darkblue\number_23.png" />
+    <Content Include="static\img\mapicons\darkblue\number_24.png" />
+    <Content Include="static\img\mapicons\darkblue\number_25.png" />
+    <Content Include="static\img\mapicons\darkblue\number_26.png" />
+    <Content Include="static\img\mapicons\darkblue\number_27.png" />
+    <Content Include="static\img\mapicons\darkblue\number_28.png" />
+    <Content Include="static\img\mapicons\darkblue\number_29.png" />
+    <Content Include="static\img\mapicons\darkblue\number_3.png" />
+    <Content Include="static\img\mapicons\darkblue\number_30.png" />
+    <Content Include="static\img\mapicons\darkblue\number_31.png" />
+    <Content Include="static\img\mapicons\darkblue\number_32.png" />
+    <Content Include="static\img\mapicons\darkblue\number_33.png" />
+    <Content Include="static\img\mapicons\darkblue\number_34.png" />
+    <Content Include="static\img\mapicons\darkblue\number_35.png" />
+    <Content Include="static\img\mapicons\darkblue\number_36.png" />
+    <Content Include="static\img\mapicons\darkblue\number_37.png" />
+    <Content Include="static\img\mapicons\darkblue\number_38.png" />
+    <Content Include="static\img\mapicons\darkblue\number_39.png" />
+    <Content Include="static\img\mapicons\darkblue\number_4.png" />
+    <Content Include="static\img\mapicons\darkblue\number_40.png" />
+    <Content Include="static\img\mapicons\darkblue\number_41.png" />
+    <Content Include="static\img\mapicons\darkblue\number_42.png" />
+    <Content Include="static\img\mapicons\darkblue\number_43.png" />
+    <Content Include="static\img\mapicons\darkblue\number_44.png" />
+    <Content Include="static\img\mapicons\darkblue\number_45.png" />
+    <Content Include="static\img\mapicons\darkblue\number_46.png" />
+    <Content Include="static\img\mapicons\darkblue\number_47.png" />
+    <Content Include="static\img\mapicons\darkblue\number_48.png" />
+    <Content Include="static\img\mapicons\darkblue\number_49.png" />
+    <Content Include="static\img\mapicons\darkblue\number_5.png" />
+    <Content Include="static\img\mapicons\darkblue\number_50.png" />
+    <Content Include="static\img\mapicons\darkblue\number_51.png" />
+    <Content Include="static\img\mapicons\darkblue\number_52.png" />
+    <Content Include="static\img\mapicons\darkblue\number_53.png" />
+    <Content Include="static\img\mapicons\darkblue\number_54.png" />
+    <Content Include="static\img\mapicons\darkblue\number_55.png" />
+    <Content Include="static\img\mapicons\darkblue\number_56.png" />
+    <Content Include="static\img\mapicons\darkblue\number_57.png" />
+    <Content Include="static\img\mapicons\darkblue\number_58.png" />
+    <Content Include="static\img\mapicons\darkblue\number_59.png" />
+    <Content Include="static\img\mapicons\darkblue\number_6.png" />
+    <Content Include="static\img\mapicons\darkblue\number_60.png" />
+    <Content Include="static\img\mapicons\darkblue\number_61.png" />
+    <Content Include="static\img\mapicons\darkblue\number_62.png" />
+    <Content Include="static\img\mapicons\darkblue\number_63.png" />
+    <Content Include="static\img\mapicons\darkblue\number_64.png" />
+    <Content Include="static\img\mapicons\darkblue\number_65.png" />
+    <Content Include="static\img\mapicons\darkblue\number_66.png" />
+    <Content Include="static\img\mapicons\darkblue\number_67.png" />
+    <Content Include="static\img\mapicons\darkblue\number_68.png" />
+    <Content Include="static\img\mapicons\darkblue\number_69.png" />
+    <Content Include="static\img\mapicons\darkblue\number_7.png" />
+    <Content Include="static\img\mapicons\darkblue\number_70.png" />
+    <Content Include="static\img\mapicons\darkblue\number_71.png" />
+    <Content Include="static\img\mapicons\darkblue\number_72.png" />
+    <Content Include="static\img\mapicons\darkblue\number_73.png" />
+    <Content Include="static\img\mapicons\darkblue\number_74.png" />
+    <Content Include="static\img\mapicons\darkblue\number_75.png" />
+    <Content Include="static\img\mapicons\darkblue\number_76.png" />
+    <Content Include="static\img\mapicons\darkblue\number_77.png" />
+    <Content Include="static\img\mapicons\darkblue\number_78.png" />
+    <Content Include="static\img\mapicons\darkblue\number_79.png" />
+    <Content Include="static\img\mapicons\darkblue\number_8.png" />
+    <Content Include="static\img\mapicons\darkblue\number_80.png" />
+    <Content Include="static\img\mapicons\darkblue\number_81.png" />
+    <Content Include="static\img\mapicons\darkblue\number_82.png" />
+    <Content Include="static\img\mapicons\darkblue\number_83.png" />
+    <Content Include="static\img\mapicons\darkblue\number_84.png" />
+    <Content Include="static\img\mapicons\darkblue\number_85.png" />
+    <Content Include="static\img\mapicons\darkblue\number_86.png" />
+    <Content Include="static\img\mapicons\darkblue\number_87.png" />
+    <Content Include="static\img\mapicons\darkblue\number_88.png" />
+    <Content Include="static\img\mapicons\darkblue\number_89.png" />
+    <Content Include="static\img\mapicons\darkblue\number_9.png" />
+    <Content Include="static\img\mapicons\darkblue\number_90.png" />
+    <Content Include="static\img\mapicons\darkblue\number_91.png" />
+    <Content Include="static\img\mapicons\darkblue\number_92.png" />
+    <Content Include="static\img\mapicons\darkblue\number_93.png" />
+    <Content Include="static\img\mapicons\darkblue\number_94.png" />
+    <Content Include="static\img\mapicons\darkblue\number_95.png" />
+    <Content Include="static\img\mapicons\darkblue\number_96.png" />
+    <Content Include="static\img\mapicons\darkblue\number_97.png" />
+    <Content Include="static\img\mapicons\darkblue\number_98.png" />
+    <Content Include="static\img\mapicons\darkblue\number_99.png" />
+    <Content Include="static\img\mapicons\gray\number_0.png" />
+    <Content Include="static\img\mapicons\gray\number_1.png" />
+    <Content Include="static\img\mapicons\gray\number_10.png" />
+    <Content Include="static\img\mapicons\gray\number_100.png" />
+    <Content Include="static\img\mapicons\gray\number_11.png" />
+    <Content Include="static\img\mapicons\gray\number_12.png" />
+    <Content Include="static\img\mapicons\gray\number_13.png" />
+    <Content Include="static\img\mapicons\gray\number_14.png" />
+    <Content Include="static\img\mapicons\gray\number_15.png" />
+    <Content Include="static\img\mapicons\gray\number_16.png" />
+    <Content Include="static\img\mapicons\gray\number_17.png" />
+    <Content Include="static\img\mapicons\gray\number_18.png" />
+    <Content Include="static\img\mapicons\gray\number_19.png" />
+    <Content Include="static\img\mapicons\gray\number_2.png" />
+    <Content Include="static\img\mapicons\gray\number_20.png" />
+    <Content Include="static\img\mapicons\gray\number_21.png" />
+    <Content Include="static\img\mapicons\gray\number_22.png" />
+    <Content Include="static\img\mapicons\gray\number_23.png" />
+    <Content Include="static\img\mapicons\gray\number_24.png" />
+    <Content Include="static\img\mapicons\gray\number_25.png" />
+    <Content Include="static\img\mapicons\gray\number_26.png" />
+    <Content Include="static\img\mapicons\gray\number_27.png" />
+    <Content Include="static\img\mapicons\gray\number_28.png" />
+    <Content Include="static\img\mapicons\gray\number_29.png" />
+    <Content Include="static\img\mapicons\gray\number_3.png" />
+    <Content Include="static\img\mapicons\gray\number_30.png" />
+    <Content Include="static\img\mapicons\gray\number_31.png" />
+    <Content Include="static\img\mapicons\gray\number_32.png" />
+    <Content Include="static\img\mapicons\gray\number_33.png" />
+    <Content Include="static\img\mapicons\gray\number_34.png" />
+    <Content Include="static\img\mapicons\gray\number_35.png" />
+    <Content Include="static\img\mapicons\gray\number_36.png" />
+    <Content Include="static\img\mapicons\gray\number_37.png" />
+    <Content Include="static\img\mapicons\gray\number_38.png" />
+    <Content Include="static\img\mapicons\gray\number_39.png" />
+    <Content Include="static\img\mapicons\gray\number_4.png" />
+    <Content Include="static\img\mapicons\gray\number_40.png" />
+    <Content Include="static\img\mapicons\gray\number_41.png" />
+    <Content Include="static\img\mapicons\gray\number_42.png" />
+    <Content Include="static\img\mapicons\gray\number_43.png" />
+    <Content Include="static\img\mapicons\gray\number_44.png" />
+    <Content Include="static\img\mapicons\gray\number_45.png" />
+    <Content Include="static\img\mapicons\gray\number_46.png" />
+    <Content Include="static\img\mapicons\gray\number_47.png" />
+    <Content Include="static\img\mapicons\gray\number_48.png" />
+    <Content Include="static\img\mapicons\gray\number_49.png" />
+    <Content Include="static\img\mapicons\gray\number_5.png" />
+    <Content Include="static\img\mapicons\gray\number_50.png" />
+    <Content Include="static\img\mapicons\gray\number_51.png" />
+    <Content Include="static\img\mapicons\gray\number_52.png" />
+    <Content Include="static\img\mapicons\gray\number_53.png" />
+    <Content Include="static\img\mapicons\gray\number_54.png" />
+    <Content Include="static\img\mapicons\gray\number_55.png" />
+    <Content Include="static\img\mapicons\gray\number_56.png" />
+    <Content Include="static\img\mapicons\gray\number_57.png" />
+    <Content Include="static\img\mapicons\gray\number_58.png" />
+    <Content Include="static\img\mapicons\gray\number_59.png" />
+    <Content Include="static\img\mapicons\gray\number_6.png" />
+    <Content Include="static\img\mapicons\gray\number_60.png" />
+    <Content Include="static\img\mapicons\gray\number_61.png" />
+    <Content Include="static\img\mapicons\gray\number_62.png" />
+    <Content Include="static\img\mapicons\gray\number_63.png" />
+    <Content Include="static\img\mapicons\gray\number_64.png" />
+    <Content Include="static\img\mapicons\gray\number_65.png" />
+    <Content Include="static\img\mapicons\gray\number_66.png" />
+    <Content Include="static\img\mapicons\gray\number_67.png" />
+    <Content Include="static\img\mapicons\gray\number_68.png" />
+    <Content Include="static\img\mapicons\gray\number_69.png" />
+    <Content Include="static\img\mapicons\gray\number_7.png" />
+    <Content Include="static\img\mapicons\gray\number_70.png" />
+    <Content Include="static\img\mapicons\gray\number_71.png" />
+    <Content Include="static\img\mapicons\gray\number_72.png" />
+    <Content Include="static\img\mapicons\gray\number_73.png" />
+    <Content Include="static\img\mapicons\gray\number_74.png" />
+    <Content Include="static\img\mapicons\gray\number_75.png" />
+    <Content Include="static\img\mapicons\gray\number_76.png" />
+    <Content Include="static\img\mapicons\gray\number_77.png" />
+    <Content Include="static\img\mapicons\gray\number_78.png" />
+    <Content Include="static\img\mapicons\gray\number_79.png" />
+    <Content Include="static\img\mapicons\gray\number_8.png" />
+    <Content Include="static\img\mapicons\gray\number_80.png" />
+    <Content Include="static\img\mapicons\gray\number_81.png" />
+    <Content Include="static\img\mapicons\gray\number_82.png" />
+    <Content Include="static\img\mapicons\gray\number_83.png" />
+    <Content Include="static\img\mapicons\gray\number_84.png" />
+    <Content Include="static\img\mapicons\gray\number_85.png" />
+    <Content Include="static\img\mapicons\gray\number_86.png" />
+    <Content Include="static\img\mapicons\gray\number_87.png" />
+    <Content Include="static\img\mapicons\gray\number_88.png" />
+    <Content Include="static\img\mapicons\gray\number_89.png" />
+    <Content Include="static\img\mapicons\gray\number_9.png" />
+    <Content Include="static\img\mapicons\gray\number_90.png" />
+    <Content Include="static\img\mapicons\gray\number_91.png" />
+    <Content Include="static\img\mapicons\gray\number_92.png" />
+    <Content Include="static\img\mapicons\gray\number_93.png" />
+    <Content Include="static\img\mapicons\gray\number_94.png" />
+    <Content Include="static\img\mapicons\gray\number_95.png" />
+    <Content Include="static\img\mapicons\gray\number_96.png" />
+    <Content Include="static\img\mapicons\gray\number_97.png" />
+    <Content Include="static\img\mapicons\gray\number_98.png" />
+    <Content Include="static\img\mapicons\gray\number_99.png" />
+    <Content Include="static\img\mapicons\green\number_0.png" />
+    <Content Include="static\img\mapicons\green\number_1.png" />
+    <Content Include="static\img\mapicons\green\number_10.png" />
+    <Content Include="static\img\mapicons\green\number_100.png" />
+    <Content Include="static\img\mapicons\green\number_11.png" />
+    <Content Include="static\img\mapicons\green\number_12.png" />
+    <Content Include="static\img\mapicons\green\number_13.png" />
+    <Content Include="static\img\mapicons\green\number_14.png" />
+    <Content Include="static\img\mapicons\green\number_15.png" />
+    <Content Include="static\img\mapicons\green\number_16.png" />
+    <Content Include="static\img\mapicons\green\number_17.png" />
+    <Content Include="static\img\mapicons\green\number_18.png" />
+    <Content Include="static\img\mapicons\green\number_19.png" />
+    <Content Include="static\img\mapicons\green\number_2.png" />
+    <Content Include="static\img\mapicons\green\number_20.png" />
+    <Content Include="static\img\mapicons\green\number_21.png" />
+    <Content Include="static\img\mapicons\green\number_22.png" />
+    <Content Include="static\img\mapicons\green\number_23.png" />
+    <Content Include="static\img\mapicons\green\number_24.png" />
+    <Content Include="static\img\mapicons\green\number_25.png" />
+    <Content Include="static\img\mapicons\green\number_26.png" />
+    <Content Include="static\img\mapicons\green\number_27.png" />
+    <Content Include="static\img\mapicons\green\number_28.png" />
+    <Content Include="static\img\mapicons\green\number_29.png" />
+    <Content Include="static\img\mapicons\green\number_3.png" />
+    <Content Include="static\img\mapicons\green\number_30.png" />
+    <Content Include="static\img\mapicons\green\number_31.png" />
+    <Content Include="static\img\mapicons\green\number_32.png" />
+    <Content Include="static\img\mapicons\green\number_33.png" />
+    <Content Include="static\img\mapicons\green\number_34.png" />
+    <Content Include="static\img\mapicons\green\number_35.png" />
+    <Content Include="static\img\mapicons\green\number_36.png" />
+    <Content Include="static\img\mapicons\green\number_37.png" />
+    <Content Include="static\img\mapicons\green\number_38.png" />
+    <Content Include="static\img\mapicons\green\number_39.png" />
+    <Content Include="static\img\mapicons\green\number_4.png" />
+    <Content Include="static\img\mapicons\green\number_40.png" />
+    <Content Include="static\img\mapicons\green\number_41.png" />
+    <Content Include="static\img\mapicons\green\number_42.png" />
+    <Content Include="static\img\mapicons\green\number_43.png" />
+    <Content Include="static\img\mapicons\green\number_44.png" />
+    <Content Include="static\img\mapicons\green\number_45.png" />
+    <Content Include="static\img\mapicons\green\number_46.png" />
+    <Content Include="static\img\mapicons\green\number_47.png" />
+    <Content Include="static\img\mapicons\green\number_48.png" />
+    <Content Include="static\img\mapicons\green\number_49.png" />
+    <Content Include="static\img\mapicons\green\number_5.png" />
+    <Content Include="static\img\mapicons\green\number_50.png" />
+    <Content Include="static\img\mapicons\green\number_51.png" />
+    <Content Include="static\img\mapicons\green\number_52.png" />
+    <Content Include="static\img\mapicons\green\number_53.png" />
+    <Content Include="static\img\mapicons\green\number_54.png" />
+    <Content Include="static\img\mapicons\green\number_55.png" />
+    <Content Include="static\img\mapicons\green\number_56.png" />
+    <Content Include="static\img\mapicons\green\number_57.png" />
+    <Content Include="static\img\mapicons\green\number_58.png" />
+    <Content Include="static\img\mapicons\green\number_59.png" />
+    <Content Include="static\img\mapicons\green\number_6.png" />
+    <Content Include="static\img\mapicons\green\number_60.png" />
+    <Content Include="static\img\mapicons\green\number_61.png" />
+    <Content Include="static\img\mapicons\green\number_62.png" />
+    <Content Include="static\img\mapicons\green\number_63.png" />
+    <Content Include="static\img\mapicons\green\number_64.png" />
+    <Content Include="static\img\mapicons\green\number_65.png" />
+    <Content Include="static\img\mapicons\green\number_66.png" />
+    <Content Include="static\img\mapicons\green\number_67.png" />
+    <Content Include="static\img\mapicons\green\number_68.png" />
+    <Content Include="static\img\mapicons\green\number_69.png" />
+    <Content Include="static\img\mapicons\green\number_7.png" />
+    <Content Include="static\img\mapicons\green\number_70.png" />
+    <Content Include="static\img\mapicons\green\number_71.png" />
+    <Content Include="static\img\mapicons\green\number_72.png" />
+    <Content Include="static\img\mapicons\green\number_73.png" />
+    <Content Include="static\img\mapicons\green\number_74.png" />
+    <Content Include="static\img\mapicons\green\number_75.png" />
+    <Content Include="static\img\mapicons\green\number_76.png" />
+    <Content Include="static\img\mapicons\green\number_77.png" />
+    <Content Include="static\img\mapicons\green\number_78.png" />
+    <Content Include="static\img\mapicons\green\number_79.png" />
+    <Content Include="static\img\mapicons\green\number_8.png" />
+    <Content Include="static\img\mapicons\green\number_80.png" />
+    <Content Include="static\img\mapicons\green\number_81.png" />
+    <Content Include="static\img\mapicons\green\number_82.png" />
+    <Content Include="static\img\mapicons\green\number_83.png" />
+    <Content Include="static\img\mapicons\green\number_84.png" />
+    <Content Include="static\img\mapicons\green\number_85.png" />
+    <Content Include="static\img\mapicons\green\number_86.png" />
+    <Content Include="static\img\mapicons\green\number_87.png" />
+    <Content Include="static\img\mapicons\green\number_88.png" />
+    <Content Include="static\img\mapicons\green\number_89.png" />
+    <Content Include="static\img\mapicons\green\number_9.png" />
+    <Content Include="static\img\mapicons\green\number_90.png" />
+    <Content Include="static\img\mapicons\green\number_91.png" />
+    <Content Include="static\img\mapicons\green\number_92.png" />
+    <Content Include="static\img\mapicons\green\number_93.png" />
+    <Content Include="static\img\mapicons\green\number_94.png" />
+    <Content Include="static\img\mapicons\green\number_95.png" />
+    <Content Include="static\img\mapicons\green\number_96.png" />
+    <Content Include="static\img\mapicons\green\number_97.png" />
+    <Content Include="static\img\mapicons\green\number_98.png" />
+    <Content Include="static\img\mapicons\green\number_99.png" />
+    <Content Include="static\img\mapicons\lightblue\number_0.png" />
+    <Content Include="static\img\mapicons\lightblue\number_1.png" />
+    <Content Include="static\img\mapicons\lightblue\number_10.png" />
+    <Content Include="static\img\mapicons\lightblue\number_11.png" />
+    <Content Include="static\img\mapicons\lightblue\number_12.png" />
+    <Content Include="static\img\mapicons\lightblue\number_13.png" />
+    <Content Include="static\img\mapicons\lightblue\number_14.png" />
+    <Content Include="static\img\mapicons\lightblue\number_15.png" />
+    <Content Include="static\img\mapicons\lightblue\number_16.png" />
+    <Content Include="static\img\mapicons\lightblue\number_17.png" />
+    <Content Include="static\img\mapicons\lightblue\number_18.png" />
+    <Content Include="static\img\mapicons\lightblue\number_19.png" />
+    <Content Include="static\img\mapicons\lightblue\number_2.png" />
+    <Content Include="static\img\mapicons\lightblue\number_20.png" />
+    <Content Include="static\img\mapicons\lightblue\number_21.png" />
+    <Content Include="static\img\mapicons\lightblue\number_22.png" />
+    <Content Include="static\img\mapicons\lightblue\number_23.png" />
+    <Content Include="static\img\mapicons\lightblue\number_24.png" />
+    <Content Include="static\img\mapicons\lightblue\number_25.png" />
+    <Content Include="static\img\mapicons\lightblue\number_26.png" />
+    <Content Include="static\img\mapicons\lightblue\number_27.png" />
+    <Content Include="static\img\mapicons\lightblue\number_28.png" />
+    <Content Include="static\img\mapicons\lightblue\number_29.png" />
+    <Content Include="static\img\mapicons\lightblue\number_3.png" />
+    <Content Include="static\img\mapicons\lightblue\number_4.png" />
+    <Content Include="static\img\mapicons\lightblue\number_5.png" />
+    <Content Include="static\img\mapicons\lightblue\number_6.png" />
+    <Content Include="static\img\mapicons\lightblue\number_7.png" />
+    <Content Include="static\img\mapicons\lightblue\number_8.png" />
+    <Content Include="static\img\mapicons\lightblue\number_9.png" />
+    <Content Include="static\img\mapicons\limegreen\number_0.png" />
+    <Content Include="static\img\mapicons\limegreen\number_1.png" />
+    <Content Include="static\img\mapicons\limegreen\number_10.png" />
+    <Content Include="static\img\mapicons\limegreen\number_100.png" />
+    <Content Include="static\img\mapicons\limegreen\number_11.png" />
+    <Content Include="static\img\mapicons\limegreen\number_12.png" />
+    <Content Include="static\img\mapicons\limegreen\number_13.png" />
+    <Content Include="static\img\mapicons\limegreen\number_14.png" />
+    <Content Include="static\img\mapicons\limegreen\number_15.png" />
+    <Content Include="static\img\mapicons\limegreen\number_16.png" />
+    <Content Include="static\img\mapicons\limegreen\number_17.png" />
+    <Content Include="static\img\mapicons\limegreen\number_18.png" />
+    <Content Include="static\img\mapicons\limegreen\number_19.png" />
+    <Content Include="static\img\mapicons\limegreen\number_2.png" />
+    <Content Include="static\img\mapicons\limegreen\number_20.png" />
+    <Content Include="static\img\mapicons\limegreen\number_21.png" />
+    <Content Include="static\img\mapicons\limegreen\number_22.png" />
+    <Content Include="static\img\mapicons\limegreen\number_23.png" />
+    <Content Include="static\img\mapicons\limegreen\number_24.png" />
+    <Content Include="static\img\mapicons\limegreen\number_25.png" />
+    <Content Include="static\img\mapicons\limegreen\number_26.png" />
+    <Content Include="static\img\mapicons\limegreen\number_27.png" />
+    <Content Include="static\img\mapicons\limegreen\number_28.png" />
+    <Content Include="static\img\mapicons\limegreen\number_29.png" />
+    <Content Include="static\img\mapicons\limegreen\number_3.png" />
+    <Content Include="static\img\mapicons\limegreen\number_30.png" />
+    <Content Include="static\img\mapicons\limegreen\number_31.png" />
+    <Content Include="static\img\mapicons\limegreen\number_32.png" />
+    <Content Include="static\img\mapicons\limegreen\number_33.png" />
+    <Content Include="static\img\mapicons\limegreen\number_34.png" />
+    <Content Include="static\img\mapicons\limegreen\number_35.png" />
+    <Content Include="static\img\mapicons\limegreen\number_36.png" />
+    <Content Include="static\img\mapicons\limegreen\number_37.png" />
+    <Content Include="static\img\mapicons\limegreen\number_38.png" />
+    <Content Include="static\img\mapicons\limegreen\number_39.png" />
+    <Content Include="static\img\mapicons\limegreen\number_4.png" />
+    <Content Include="static\img\mapicons\limegreen\number_40.png" />
+    <Content Include="static\img\mapicons\limegreen\number_41.png" />
+    <Content Include="static\img\mapicons\limegreen\number_42.png" />
+    <Content Include="static\img\mapicons\limegreen\number_43.png" />
+    <Content Include="static\img\mapicons\limegreen\number_44.png" />
+    <Content Include="static\img\mapicons\limegreen\number_45.png" />
+    <Content Include="static\img\mapicons\limegreen\number_46.png" />
+    <Content Include="static\img\mapicons\limegreen\number_47.png" />
+    <Content Include="static\img\mapicons\limegreen\number_48.png" />
+    <Content Include="static\img\mapicons\limegreen\number_49.png" />
+    <Content Include="static\img\mapicons\limegreen\number_5.png" />
+    <Content Include="static\img\mapicons\limegreen\number_50.png" />
+    <Content Include="static\img\mapicons\limegreen\number_51.png" />
+    <Content Include="static\img\mapicons\limegreen\number_52.png" />
+    <Content Include="static\img\mapicons\limegreen\number_53.png" />
+    <Content Include="static\img\mapicons\limegreen\number_54.png" />
+    <Content Include="static\img\mapicons\limegreen\number_55.png" />
+    <Content Include="static\img\mapicons\limegreen\number_56.png" />
+    <Content Include="static\img\mapicons\limegreen\number_57.png" />
+    <Content Include="static\img\mapicons\limegreen\number_58.png" />
+    <Content Include="static\img\mapicons\limegreen\number_59.png" />
+    <Content Include="static\img\mapicons\limegreen\number_6.png" />
+    <Content Include="static\img\mapicons\limegreen\number_60.png" />
+    <Content Include="static\img\mapicons\limegreen\number_61.png" />
+    <Content Include="static\img\mapicons\limegreen\number_62.png" />
+    <Content Include="static\img\mapicons\limegreen\number_63.png" />
+    <Content Include="static\img\mapicons\limegreen\number_64.png" />
+    <Content Include="static\img\mapicons\limegreen\number_65.png" />
+    <Content Include="static\img\mapicons\limegreen\number_66.png" />
+    <Content Include="static\img\mapicons\limegreen\number_67.png" />
+    <Content Include="static\img\mapicons\limegreen\number_68.png" />
+    <Content Include="static\img\mapicons\limegreen\number_69.png" />
+    <Content Include="static\img\mapicons\limegreen\number_7.png" />
+    <Content Include="static\img\mapicons\limegreen\number_70.png" />
+    <Content Include="static\img\mapicons\limegreen\number_71.png" />
+    <Content Include="static\img\mapicons\limegreen\number_72.png" />
+    <Content Include="static\img\mapicons\limegreen\number_73.png" />
+    <Content Include="static\img\mapicons\limegreen\number_74.png" />
+    <Content Include="static\img\mapicons\limegreen\number_75.png" />
+    <Content Include="static\img\mapicons\limegreen\number_76.png" />
+    <Content Include="static\img\mapicons\limegreen\number_77.png" />
+    <Content Include="static\img\mapicons\limegreen\number_78.png" />
+    <Content Include="static\img\mapicons\limegreen\number_79.png" />
+    <Content Include="static\img\mapicons\limegreen\number_8.png" />
+    <Content Include="static\img\mapicons\limegreen\number_80.png" />
+    <Content Include="static\img\mapicons\limegreen\number_81.png" />
+    <Content Include="static\img\mapicons\limegreen\number_82.png" />
+    <Content Include="static\img\mapicons\limegreen\number_83.png" />
+    <Content Include="static\img\mapicons\limegreen\number_84.png" />
+    <Content Include="static\img\mapicons\limegreen\number_85.png" />
+    <Content Include="static\img\mapicons\limegreen\number_86.png" />
+    <Content Include="static\img\mapicons\limegreen\number_87.png" />
+    <Content Include="static\img\mapicons\limegreen\number_88.png" />
+    <Content Include="static\img\mapicons\limegreen\number_89.png" />
+    <Content Include="static\img\mapicons\limegreen\number_9.png" />
+    <Content Include="static\img\mapicons\limegreen\number_90.png" />
+    <Content Include="static\img\mapicons\limegreen\number_91.png" />
+    <Content Include="static\img\mapicons\limegreen\number_92.png" />
+    <Content Include="static\img\mapicons\limegreen\number_93.png" />
+    <Content Include="static\img\mapicons\limegreen\number_94.png" />
+    <Content Include="static\img\mapicons\limegreen\number_95.png" />
+    <Content Include="static\img\mapicons\limegreen\number_96.png" />
+    <Content Include="static\img\mapicons\limegreen\number_97.png" />
+    <Content Include="static\img\mapicons\limegreen\number_98.png" />
+    <Content Include="static\img\mapicons\limegreen\number_99.png" />
+    <Content Include="static\img\mapicons\orange\number_0.png" />
+    <Content Include="static\img\mapicons\orange\number_1.png" />
+    <Content Include="static\img\mapicons\orange\number_10.png" />
+    <Content Include="static\img\mapicons\orange\number_100.png" />
+    <Content Include="static\img\mapicons\orange\number_11.png" />
+    <Content Include="static\img\mapicons\orange\number_12.png" />
+    <Content Include="static\img\mapicons\orange\number_13.png" />
+    <Content Include="static\img\mapicons\orange\number_14.png" />
+    <Content Include="static\img\mapicons\orange\number_15.png" />
+    <Content Include="static\img\mapicons\orange\number_16.png" />
+    <Content Include="static\img\mapicons\orange\number_17.png" />
+    <Content Include="static\img\mapicons\orange\number_18.png" />
+    <Content Include="static\img\mapicons\orange\number_19.png" />
+    <Content Include="static\img\mapicons\orange\number_2.png" />
+    <Content Include="static\img\mapicons\orange\number_20.png" />
+    <Content Include="static\img\mapicons\orange\number_21.png" />
+    <Content Include="static\img\mapicons\orange\number_22.png" />
+    <Content Include="static\img\mapicons\orange\number_23.png" />
+    <Content Include="static\img\mapicons\orange\number_24.png" />
+    <Content Include="static\img\mapicons\orange\number_25.png" />
+    <Content Include="static\img\mapicons\orange\number_26.png" />
+    <Content Include="static\img\mapicons\orange\number_27.png" />
+    <Content Include="static\img\mapicons\orange\number_28.png" />
+    <Content Include="static\img\mapicons\orange\number_29.png" />
+    <Content Include="static\img\mapicons\orange\number_3.png" />
+    <Content Include="static\img\mapicons\orange\number_30.png" />
+    <Content Include="static\img\mapicons\orange\number_31.png" />
+    <Content Include="static\img\mapicons\orange\number_32.png" />
+    <Content Include="static\img\mapicons\orange\number_33.png" />
+    <Content Include="static\img\mapicons\orange\number_34.png" />
+    <Content Include="static\img\mapicons\orange\number_35.png" />
+    <Content Include="static\img\mapicons\orange\number_36.png" />
+    <Content Include="static\img\mapicons\orange\number_37.png" />
+    <Content Include="static\img\mapicons\orange\number_38.png" />
+    <Content Include="static\img\mapicons\orange\number_39.png" />
+    <Content Include="static\img\mapicons\orange\number_4.png" />
+    <Content Include="static\img\mapicons\orange\number_40.png" />
+    <Content Include="static\img\mapicons\orange\number_41.png" />
+    <Content Include="static\img\mapicons\orange\number_42.png" />
+    <Content Include="static\img\mapicons\orange\number_43.png" />
+    <Content Include="static\img\mapicons\orange\number_44.png" />
+    <Content Include="static\img\mapicons\orange\number_45.png" />
+    <Content Include="static\img\mapicons\orange\number_46.png" />
+    <Content Include="static\img\mapicons\orange\number_47.png" />
+    <Content Include="static\img\mapicons\orange\number_48.png" />
+    <Content Include="static\img\mapicons\orange\number_49.png" />
+    <Content Include="static\img\mapicons\orange\number_5.png" />
+    <Content Include="static\img\mapicons\orange\number_50.png" />
+    <Content Include="static\img\mapicons\orange\number_51.png" />
+    <Content Include="static\img\mapicons\orange\number_52.png" />
+    <Content Include="static\img\mapicons\orange\number_53.png" />
+    <Content Include="static\img\mapicons\orange\number_54.png" />
+    <Content Include="static\img\mapicons\orange\number_55.png" />
+    <Content Include="static\img\mapicons\orange\number_56.png" />
+    <Content Include="static\img\mapicons\orange\number_57.png" />
+    <Content Include="static\img\mapicons\orange\number_58.png" />
+    <Content Include="static\img\mapicons\orange\number_59.png" />
+    <Content Include="static\img\mapicons\orange\number_6.png" />
+    <Content Include="static\img\mapicons\orange\number_60.png" />
+    <Content Include="static\img\mapicons\orange\number_61.png" />
+    <Content Include="static\img\mapicons\orange\number_62.png" />
+    <Content Include="static\img\mapicons\orange\number_63.png" />
+    <Content Include="static\img\mapicons\orange\number_64.png" />
+    <Content Include="static\img\mapicons\orange\number_65.png" />
+    <Content Include="static\img\mapicons\orange\number_66.png" />
+    <Content Include="static\img\mapicons\orange\number_67.png" />
+    <Content Include="static\img\mapicons\orange\number_68.png" />
+    <Content Include="static\img\mapicons\orange\number_69.png" />
+    <Content Include="static\img\mapicons\orange\number_7.png" />
+    <Content Include="static\img\mapicons\orange\number_70.png" />
+    <Content Include="static\img\mapicons\orange\number_71.png" />
+    <Content Include="static\img\mapicons\orange\number_72.png" />
+    <Content Include="static\img\mapicons\orange\number_73.png" />
+    <Content Include="static\img\mapicons\orange\number_74.png" />
+    <Content Include="static\img\mapicons\orange\number_75.png" />
+    <Content Include="static\img\mapicons\orange\number_76.png" />
+    <Content Include="static\img\mapicons\orange\number_77.png" />
+    <Content Include="static\img\mapicons\orange\number_78.png" />
+    <Content Include="static\img\mapicons\orange\number_79.png" />
+    <Content Include="static\img\mapicons\orange\number_8.png" />
+    <Content Include="static\img\mapicons\orange\number_80.png" />
+    <Content Include="static\img\mapicons\orange\number_81.png" />
+    <Content Include="static\img\mapicons\orange\number_82.png" />
+    <Content Include="static\img\mapicons\orange\number_83.png" />
+    <Content Include="static\img\mapicons\orange\number_84.png" />
+    <Content Include="static\img\mapicons\orange\number_85.png" />
+    <Content Include="static\img\mapicons\orange\number_86.png" />
+    <Content Include="static\img\mapicons\orange\number_87.png" />
+    <Content Include="static\img\mapicons\orange\number_88.png" />
+    <Content Include="static\img\mapicons\orange\number_89.png" />
+    <Content Include="static\img\mapicons\orange\number_9.png" />
+    <Content Include="static\img\mapicons\orange\number_90.png" />
+    <Content Include="static\img\mapicons\orange\number_91.png" />
+    <Content Include="static\img\mapicons\orange\number_92.png" />
+    <Content Include="static\img\mapicons\orange\number_93.png" />
+    <Content Include="static\img\mapicons\orange\number_94.png" />
+    <Content Include="static\img\mapicons\orange\number_95.png" />
+    <Content Include="static\img\mapicons\orange\number_96.png" />
+    <Content Include="static\img\mapicons\orange\number_97.png" />
+    <Content Include="static\img\mapicons\orange\number_98.png" />
+    <Content Include="static\img\mapicons\orange\number_99.png" />
+    <Content Include="static\img\mapicons\purple\number_0.png" />
+    <Content Include="static\img\mapicons\purple\number_1.png" />
+    <Content Include="static\img\mapicons\purple\number_10.png" />
+    <Content Include="static\img\mapicons\purple\number_100.png" />
+    <Content Include="static\img\mapicons\purple\number_11.png" />
+    <Content Include="static\img\mapicons\purple\number_12.png" />
+    <Content Include="static\img\mapicons\purple\number_13.png" />
+    <Content Include="static\img\mapicons\purple\number_14.png" />
+    <Content Include="static\img\mapicons\purple\number_15.png" />
+    <Content Include="static\img\mapicons\purple\number_16.png" />
+    <Content Include="static\img\mapicons\purple\number_17.png" />
+    <Content Include="static\img\mapicons\purple\number_18.png" />
+    <Content Include="static\img\mapicons\purple\number_19.png" />
+    <Content Include="static\img\mapicons\purple\number_2.png" />
+    <Content Include="static\img\mapicons\purple\number_20.png" />
+    <Content Include="static\img\mapicons\purple\number_21.png" />
+    <Content Include="static\img\mapicons\purple\number_22.png" />
+    <Content Include="static\img\mapicons\purple\number_23.png" />
+    <Content Include="static\img\mapicons\purple\number_24.png" />
+    <Content Include="static\img\mapicons\purple\number_25.png" />
+    <Content Include="static\img\mapicons\purple\number_26.png" />
+    <Content Include="static\img\mapicons\purple\number_27.png" />
+    <Content Include="static\img\mapicons\purple\number_28.png" />
+    <Content Include="static\img\mapicons\purple\number_29.png" />
+    <Content Include="static\img\mapicons\purple\number_3.png" />
+    <Content Include="static\img\mapicons\purple\number_30.png" />
+    <Content Include="static\img\mapicons\purple\number_31.png" />
+    <Content Include="static\img\mapicons\purple\number_32.png" />
+    <Content Include="static\img\mapicons\purple\number_33.png" />
+    <Content Include="static\img\mapicons\purple\number_34.png" />
+    <Content Include="static\img\mapicons\purple\number_35.png" />
+    <Content Include="static\img\mapicons\purple\number_36.png" />
+    <Content Include="static\img\mapicons\purple\number_37.png" />
+    <Content Include="static\img\mapicons\purple\number_38.png" />
+    <Content Include="static\img\mapicons\purple\number_39.png" />
+    <Content Include="static\img\mapicons\purple\number_4.png" />
+    <Content Include="static\img\mapicons\purple\number_40.png" />
+    <Content Include="static\img\mapicons\purple\number_41.png" />
+    <Content Include="static\img\mapicons\purple\number_42.png" />
+    <Content Include="static\img\mapicons\purple\number_43.png" />
+    <Content Include="static\img\mapicons\purple\number_44.png" />
+    <Content Include="static\img\mapicons\purple\number_45.png" />
+    <Content Include="static\img\mapicons\purple\number_46.png" />
+    <Content Include="static\img\mapicons\purple\number_47.png" />
+    <Content Include="static\img\mapicons\purple\number_48.png" />
+    <Content Include="static\img\mapicons\purple\number_49.png" />
+    <Content Include="static\img\mapicons\purple\number_5.png" />
+    <Content Include="static\img\mapicons\purple\number_50.png" />
+    <Content Include="static\img\mapicons\purple\number_51.png" />
+    <Content Include="static\img\mapicons\purple\number_52.png" />
+    <Content Include="static\img\mapicons\purple\number_53.png" />
+    <Content Include="static\img\mapicons\purple\number_54.png" />
+    <Content Include="static\img\mapicons\purple\number_55.png" />
+    <Content Include="static\img\mapicons\purple\number_56.png" />
+    <Content Include="static\img\mapicons\purple\number_57.png" />
+    <Content Include="static\img\mapicons\purple\number_58.png" />
+    <Content Include="static\img\mapicons\purple\number_59.png" />
+    <Content Include="static\img\mapicons\purple\number_6.png" />
+    <Content Include="static\img\mapicons\purple\number_60.png" />
+    <Content Include="static\img\mapicons\purple\number_61.png" />
+    <Content Include="static\img\mapicons\purple\number_62.png" />
+    <Content Include="static\img\mapicons\purple\number_63.png" />
+    <Content Include="static\img\mapicons\purple\number_64.png" />
+    <Content Include="static\img\mapicons\purple\number_65.png" />
+    <Content Include="static\img\mapicons\purple\number_66.png" />
+    <Content Include="static\img\mapicons\purple\number_67.png" />
+    <Content Include="static\img\mapicons\purple\number_68.png" />
+    <Content Include="static\img\mapicons\purple\number_69.png" />
+    <Content Include="static\img\mapicons\purple\number_7.png" />
+    <Content Include="static\img\mapicons\purple\number_70.png" />
+    <Content Include="static\img\mapicons\purple\number_71.png" />
+    <Content Include="static\img\mapicons\purple\number_72.png" />
+    <Content Include="static\img\mapicons\purple\number_73.png" />
+    <Content Include="static\img\mapicons\purple\number_74.png" />
+    <Content Include="static\img\mapicons\purple\number_75.png" />
+    <Content Include="static\img\mapicons\purple\number_76.png" />
+    <Content Include="static\img\mapicons\purple\number_77.png" />
+    <Content Include="static\img\mapicons\purple\number_78.png" />
+    <Content Include="static\img\mapicons\purple\number_79.png" />
+    <Content Include="static\img\mapicons\purple\number_8.png" />
+    <Content Include="static\img\mapicons\purple\number_80.png" />
+    <Content Include="static\img\mapicons\purple\number_81.png" />
+    <Content Include="static\img\mapicons\purple\number_82.png" />
+    <Content Include="static\img\mapicons\purple\number_83.png" />
+    <Content Include="static\img\mapicons\purple\number_84.png" />
+    <Content Include="static\img\mapicons\purple\number_85.png" />
+    <Content Include="static\img\mapicons\purple\number_86.png" />
+    <Content Include="static\img\mapicons\purple\number_87.png" />
+    <Content Include="static\img\mapicons\purple\number_88.png" />
+    <Content Include="static\img\mapicons\purple\number_89.png" />
+    <Content Include="static\img\mapicons\purple\number_9.png" />
+    <Content Include="static\img\mapicons\purple\number_90.png" />
+    <Content Include="static\img\mapicons\purple\number_91.png" />
+    <Content Include="static\img\mapicons\purple\number_92.png" />
+    <Content Include="static\img\mapicons\purple\number_93.png" />
+    <Content Include="static\img\mapicons\purple\number_94.png" />
+    <Content Include="static\img\mapicons\purple\number_95.png" />
+    <Content Include="static\img\mapicons\purple\number_96.png" />
+    <Content Include="static\img\mapicons\purple\number_97.png" />
+    <Content Include="static\img\mapicons\purple\number_98.png" />
+    <Content Include="static\img\mapicons\purple\number_99.png" />
+    <Content Include="static\img\mapicons\red\number_0.png" />
+    <Content Include="static\img\mapicons\red\number_1.png" />
+    <Content Include="static\img\mapicons\red\number_10.png" />
+    <Content Include="static\img\mapicons\red\number_11.png" />
+    <Content Include="static\img\mapicons\red\number_12.png" />
+    <Content Include="static\img\mapicons\red\number_13.png" />
+    <Content Include="static\img\mapicons\red\number_14.png" />
+    <Content Include="static\img\mapicons\red\number_15.png" />
+    <Content Include="static\img\mapicons\red\number_16.png" />
+    <Content Include="static\img\mapicons\red\number_17.png" />
+    <Content Include="static\img\mapicons\red\number_18.png" />
+    <Content Include="static\img\mapicons\red\number_19.png" />
+    <Content Include="static\img\mapicons\red\number_2.png" />
+    <Content Include="static\img\mapicons\red\number_20.png" />
+    <Content Include="static\img\mapicons\red\number_21.png" />
+    <Content Include="static\img\mapicons\red\number_22.png" />
+    <Content Include="static\img\mapicons\red\number_23.png" />
+    <Content Include="static\img\mapicons\red\number_24.png" />
+    <Content Include="static\img\mapicons\red\number_25.png" />
+    <Content Include="static\img\mapicons\red\number_26.png" />
+    <Content Include="static\img\mapicons\red\number_27.png" />
+    <Content Include="static\img\mapicons\red\number_28.png" />
+    <Content Include="static\img\mapicons\red\number_29.png" />
+    <Content Include="static\img\mapicons\red\number_3.png" />
+    <Content Include="static\img\mapicons\red\number_4.png" />
+    <Content Include="static\img\mapicons\red\number_5.png" />
+    <Content Include="static\img\mapicons\red\number_6.png" />
+    <Content Include="static\img\mapicons\red\number_7.png" />
+    <Content Include="static\img\mapicons\red\number_8.png" />
+    <Content Include="static\img\mapicons\red\number_9.png" />
+    <Content Include="static\img\mapicons\white\number_0.png" />
+    <Content Include="static\img\mapicons\white\number_1.png" />
+    <Content Include="static\img\mapicons\white\number_10.png" />
+    <Content Include="static\img\mapicons\white\number_100.png" />
+    <Content Include="static\img\mapicons\white\number_11.png" />
+    <Content Include="static\img\mapicons\white\number_12.png" />
+    <Content Include="static\img\mapicons\white\number_13.png" />
+    <Content Include="static\img\mapicons\white\number_14.png" />
+    <Content Include="static\img\mapicons\white\number_15.png" />
+    <Content Include="static\img\mapicons\white\number_16.png" />
+    <Content Include="static\img\mapicons\white\number_17.png" />
+    <Content Include="static\img\mapicons\white\number_18.png" />
+    <Content Include="static\img\mapicons\white\number_19.png" />
+    <Content Include="static\img\mapicons\white\number_2.png" />
+    <Content Include="static\img\mapicons\white\number_20.png" />
+    <Content Include="static\img\mapicons\white\number_21.png" />
+    <Content Include="static\img\mapicons\white\number_22.png" />
+    <Content Include="static\img\mapicons\white\number_23.png" />
+    <Content Include="static\img\mapicons\white\number_24.png" />
+    <Content Include="static\img\mapicons\white\number_25.png" />
+    <Content Include="static\img\mapicons\white\number_26.png" />
+    <Content Include="static\img\mapicons\white\number_27.png" />
+    <Content Include="static\img\mapicons\white\number_28.png" />
+    <Content Include="static\img\mapicons\white\number_29.png" />
+    <Content Include="static\img\mapicons\white\number_3.png" />
+    <Content Include="static\img\mapicons\white\number_30.png" />
+    <Content Include="static\img\mapicons\white\number_31.png" />
+    <Content Include="static\img\mapicons\white\number_32.png" />
+    <Content Include="static\img\mapicons\white\number_33.png" />
+    <Content Include="static\img\mapicons\white\number_34.png" />
+    <Content Include="static\img\mapicons\white\number_35.png" />
+    <Content Include="static\img\mapicons\white\number_36.png" />
+    <Content Include="static\img\mapicons\white\number_37.png" />
+    <Content Include="static\img\mapicons\white\number_38.png" />
+    <Content Include="static\img\mapicons\white\number_39.png" />
+    <Content Include="static\img\mapicons\white\number_4.png" />
+    <Content Include="static\img\mapicons\white\number_40.png" />
+    <Content Include="static\img\mapicons\white\number_41.png" />
+    <Content Include="static\img\mapicons\white\number_42.png" />
+    <Content Include="static\img\mapicons\white\number_43.png" />
+    <Content Include="static\img\mapicons\white\number_44.png" />
+    <Content Include="static\img\mapicons\white\number_45.png" />
+    <Content Include="static\img\mapicons\white\number_46.png" />
+    <Content Include="static\img\mapicons\white\number_47.png" />
+    <Content Include="static\img\mapicons\white\number_48.png" />
+    <Content Include="static\img\mapicons\white\number_49.png" />
+    <Content Include="static\img\mapicons\white\number_5.png" />
+    <Content Include="static\img\mapicons\white\number_50.png" />
+    <Content Include="static\img\mapicons\white\number_51.png" />
+    <Content Include="static\img\mapicons\white\number_52.png" />
+    <Content Include="static\img\mapicons\white\number_53.png" />
+    <Content Include="static\img\mapicons\white\number_54.png" />
+    <Content Include="static\img\mapicons\white\number_55.png" />
+    <Content Include="static\img\mapicons\white\number_56.png" />
+    <Content Include="static\img\mapicons\white\number_57.png" />
+    <Content Include="static\img\mapicons\white\number_58.png" />
+    <Content Include="static\img\mapicons\white\number_59.png" />
+    <Content Include="static\img\mapicons\white\number_6.png" />
+    <Content Include="static\img\mapicons\white\number_60.png" />
+    <Content Include="static\img\mapicons\white\number_61.png" />
+    <Content Include="static\img\mapicons\white\number_62.png" />
+    <Content Include="static\img\mapicons\white\number_63.png" />
+    <Content Include="static\img\mapicons\white\number_64.png" />
+    <Content Include="static\img\mapicons\white\number_65.png" />
+    <Content Include="static\img\mapicons\white\number_66.png" />
+    <Content Include="static\img\mapicons\white\number_67.png" />
+    <Content Include="static\img\mapicons\white\number_68.png" />
+    <Content Include="static\img\mapicons\white\number_69.png" />
+    <Content Include="static\img\mapicons\white\number_7.png" />
+    <Content Include="static\img\mapicons\white\number_70.png" />
+    <Content Include="static\img\mapicons\white\number_71.png" />
+    <Content Include="static\img\mapicons\white\number_72.png" />
+    <Content Include="static\img\mapicons\white\number_73.png" />
+    <Content Include="static\img\mapicons\white\number_74.png" />
+    <Content Include="static\img\mapicons\white\number_75.png" />
+    <Content Include="static\img\mapicons\white\number_76.png" />
+    <Content Include="static\img\mapicons\white\number_77.png" />
+    <Content Include="static\img\mapicons\white\number_78.png" />
+    <Content Include="static\img\mapicons\white\number_79.png" />
+    <Content Include="static\img\mapicons\white\number_8.png" />
+    <Content Include="static\img\mapicons\white\number_80.png" />
+    <Content Include="static\img\mapicons\white\number_81.png" />
+    <Content Include="static\img\mapicons\white\number_82.png" />
+    <Content Include="static\img\mapicons\white\number_83.png" />
+    <Content Include="static\img\mapicons\white\number_84.png" />
+    <Content Include="static\img\mapicons\white\number_85.png" />
+    <Content Include="static\img\mapicons\white\number_86.png" />
+    <Content Include="static\img\mapicons\white\number_87.png" />
+    <Content Include="static\img\mapicons\white\number_88.png" />
+    <Content Include="static\img\mapicons\white\number_89.png" />
+    <Content Include="static\img\mapicons\white\number_9.png" />
+    <Content Include="static\img\mapicons\white\number_90.png" />
+    <Content Include="static\img\mapicons\white\number_91.png" />
+    <Content Include="static\img\mapicons\white\number_92.png" />
+    <Content Include="static\img\mapicons\white\number_93.png" />
+    <Content Include="static\img\mapicons\white\number_94.png" />
+    <Content Include="static\img\mapicons\white\number_95.png" />
+    <Content Include="static\img\mapicons\white\number_96.png" />
+    <Content Include="static\img\mapicons\white\number_97.png" />
+    <Content Include="static\img\mapicons\white\number_98.png" />
+    <Content Include="static\img\mapicons\white\number_99.png" />
+    <Content Include="static\img\mapicons\yellow\number_0.png" />
+    <Content Include="static\img\mapicons\yellow\number_1.png" />
+    <Content Include="static\img\mapicons\yellow\number_10.png" />
+    <Content Include="static\img\mapicons\yellow\number_11.png" />
+    <Content Include="static\img\mapicons\yellow\number_12.png" />
+    <Content Include="static\img\mapicons\yellow\number_13.png" />
+    <Content Include="static\img\mapicons\yellow\number_14.png" />
+    <Content Include="static\img\mapicons\yellow\number_15.png" />
+    <Content Include="static\img\mapicons\yellow\number_16.png" />
+    <Content Include="static\img\mapicons\yellow\number_17.png" />
+    <Content Include="static\img\mapicons\yellow\number_18.png" />
+    <Content Include="static\img\mapicons\yellow\number_19.png" />
+    <Content Include="static\img\mapicons\yellow\number_2.png" />
+    <Content Include="static\img\mapicons\yellow\number_20.png" />
+    <Content Include="static\img\mapicons\yellow\number_21.png" />
+    <Content Include="static\img\mapicons\yellow\number_22.png" />
+    <Content Include="static\img\mapicons\yellow\number_23.png" />
+    <Content Include="static\img\mapicons\yellow\number_24.png" />
+    <Content Include="static\img\mapicons\yellow\number_25.png" />
+    <Content Include="static\img\mapicons\yellow\number_26.png" />
+    <Content Include="static\img\mapicons\yellow\number_27.png" />
+    <Content Include="static\img\mapicons\yellow\number_28.png" />
+    <Content Include="static\img\mapicons\yellow\number_29.png" />
+    <Content Include="static\img\mapicons\yellow\number_3.png" />
+    <Content Include="static\img\mapicons\yellow\number_4.png" />
+    <Content Include="static\img\mapicons\yellow\number_5.png" />
+    <Content Include="static\img\mapicons\yellow\number_6.png" />
+    <Content Include="static\img\mapicons\yellow\number_7.png" />
+    <Content Include="static\img\mapicons\yellow\number_8.png" />
+    <Content Include="static\img\mapicons\yellow\number_9.png" />
+    <Content Include="static\img\pagination_sprite_icons.png" />
+    <Content Include="static\img\payment-method-sprite.png" />
+    <Content Include="static\img\pdf-logo-100x300.png" />
+    <Content Include="static\img\pdf-logo.png" />
+    <Content Include="static\img\phone_number_footer.png" />
+    <Content Include="static\img\placeholder.png" />
+    <Content Include="static\img\pool-table.png" />
+    <Content Include="static\img\profile\belinda.png" />
+    <Content Include="static\img\search-mag.gif" />
+    <Content Include="static\img\selected.png" />
+    <Content Include="static\img\sprite.png" />
+    <Content Include="static\img\stop-map.png" />
+    <Content Include="static\img\tire.png" />
+    <Content Include="static\img\tweeter.jpg" />
+    <Content Include="static\img\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="static\img\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="static\img\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="static\img\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="static\img\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="static\img\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="static\img\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="static\img\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="static\img\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="static\img\ui-icons_222222_256x240.png" />
+    <Content Include="static\img\ui-icons_228ef1_256x240.png" />
+    <Content Include="static\img\ui-icons_ef8c08_256x240.png" />
+    <Content Include="static\img\ui-icons_ffd27a_256x240.png" />
+    <Content Include="static\img\ui-icons_ffffff_256x240.png" />
+    <Content Include="static\img\user-profile-placeholder-28x28.png" />
+    <Content Include="static\img\x.png" />
+    <Content Include="static\js\account-server-objects.js">
+      <DependentUpon>account-server-objects.coffee</DependentUpon>
+    </Content>
+    <Content Include="static\js\accounts.js" />
+    <Content Include="static\js\address-verify.js" />
+    <Content Include="static\js\comment-manager.js" />
+    <Content Include="static\js\home.js" />
+    <Content Include="static\js\inventory.js" />
+    <Content Include="static\js\maps.js" />
+    <Content Include="static\js\payment.js" />
+    <Content Include="static\js\plugins\bootstrap-jasny.js" />
+    <Content Include="static\js\plugins\bootstrap-select.js" />
+    <Content Include="static\js\plugins\bootstrap.js" />
+    <Content Include="static\js\plugins\civem.js" />
+    <Content Include="static\js\plugins\dateformat.js" />
+    <Content Include="static\js\plugins\filereader.js" />
+    <Content Include="static\js\plugins\jquery-1.8.3.vsdoc.js" />
+    <Content Include="static\js\plugins\jquery-ui-1.10.2.custom.js" />
+    <Content Include="static\js\plugins\jquery.ajaxq.js" />
+    <Content Include="static\js\plugins\jquery.autocomplete.js" />
+    <Content Include="static\js\plugins\jquery.autosearch.js" />
+    <Content Include="static\js\plugins\jquery.compat.js" />
+    <Content Include="static\js\plugins\jquery.cookie.js" />
+    <Content Include="static\js\plugins\jquery.fullcalendar.js" />
+    <Content Include="static\js\plugins\jquery.history.js" />
+    <Content Include="static\js\plugins\jquery.js" />
+    <Content Include="static\js\plugins\jquery.maskedinput.js" />
+    <Content Include="static\js\plugins\jquery.plusAsTab.js" />
+    <Content Include="static\js\plugins\jquery.toggle-panel.js" />
+    <Content Include="static\js\plugins\kalendae.js" />
+    <Content Include="static\js\plugins\number-polyfill.js" />
+    <Content Include="static\js\plugins\sprintf.js" />
+    <Content Include="static\js\plugins\underscore.js" />
+    <Content Include="static\js\post-server-objects.js">
+      <DependentUpon>post-server-objects.coffee</DependentUpon>
+    </Content>
+    <Content Include="static\js\post.js" />
+    <Content Include="static\js\posting-view.js" />
+    <Content Include="static\js\pricing.js" />
+    <Content Include="static\js\quote-manager.js" />
+    <Content Include="static\js\quote-overview.js" />
+    <Content Include="static\js\quote-server-objects.js">
+      <DependentUpon>quote-server-objects.coffee</DependentUpon>
+    </Content>
+    <Content Include="static\js\quotes.js" />
+    <Content Include="static\js\references.js" />
+    <Content Include="static\js\repository.js">
+      <DependentUpon>repository.coffee</DependentUpon>
+    </Content>
+    <Content Include="static\js\repository.min.js">
+      <DependentUpon>repository.coffee</DependentUpon>
+    </Content>
+    <Content Include="static\js\schedule-map.js" />
+    <Content Include="static\js\schedule.js" />
+    <Content Include="static\js\send-email.js" />
+    <Content Include="static\js\site.js" />
+    <Content Include="static\js\stateManager.js" />
+    <Content Include="static\js\stops.js" />
+    <Content Include="static\js\storage.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Accounts\Index.cshtml">
+      <LastGenOutput>Index.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Login\ForgotPassword.cshtml">
+      <LastGenOutput>ForgotPassword.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Login\Index.cshtml">
+      <LastGenOutput>Index.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Login\ResetPassword.cshtml">
+      <LastGenOutput>ResetPassword.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Shared\Base.cshtml">
+      <LastGenOutput>Base.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Shared\Main.cshtml">
+      <LastGenOutput>Main.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Shared\_Header.cshtml">
+      <LastGenOutput>_Header1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Shared\Public.cshtml">
+      <LastGenOutput>Public.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="static\compiled\.gitignore" />
+    <Content Include="static\css\accounts.scss" />
+    <Content Include="static\css\admin.scss" />
+    <Content Include="static\css-plugins\bootstrap-jasny.scss" />
+    <Content Include="static\css-plugins\bootstrap-select.scss" />
+    <Content Include="static\css-plugins\bootstrap.scss" />
+    <Content Include="static\css-plugins\font-awesome.scss" />
+    <Content Include="static\css-plugins\full-calendar.scss" />
+    <Content Include="static\css-plugins\reset.scss" />
+    <Content Include="static\css\base.scss" />
+    <Content Include="static\css\claims.scss" />
+    <Content Include="static\css\confirm.scss" />
+    <Content Include="static\css\employees.scss" />
+    <Content Include="static\css\hacks.scss" />
+    <Content Include="static\css\header.scss" />
+    <Content Include="static\css\iphone.scss" />
+    <Content Include="static\css\login.scss" />
+    <Content Include="static\css\mixins.scss" />
+    <Content Include="static\css\payrollsummary.scss" />
+    <Content Include="static\css\PDF\contract.scss" />
+    <Content Include="static\css\PDF\invoice.scss" />
+    <Content Include="static\css\PDF\proposal.scss" />
+    <Content Include="static\css\PDF\statement.scss" />
+    <Content Include="static\css\PDF\workorder.scss" />
+    <Content Include="static\css\posting.scss" />
+    <Content Include="static\css\print.scss" />
+    <Content Include="static\css\quote-manager.scss" />
+    <Content Include="static\css\quote.scss" />
+    <Content Include="static\css\screen.scss" />
+    <Content Include="static\css\stats.scss" />
+    <Content Include="static\css\storage.scss" />
+    <Content Include="static\font\fontawesome-webfont.eot" />
+    <Content Include="static\font\fontawesome-webfont.ttf" />
+    <Content Include="static\font\fontawesome-webfont.woff" />
+    <Content Include="static\font\FontAwesome.otf" />
+    <Content Include="static\font\openwebicons.eot" />
+    <Content Include="static\font\openwebicons.ttf" />
+    <Content Include="static\font\openwebicons.woff" />
+    <Content Include="static\img\sources\credit-cards._V136448982_.pdn" />
+    <Content Include="static\js\account-server-objects.coffee" />
+    <Content Include="static\js\post-server-objects.coffee" />
+    <Content Include="static\js\quote-server-objects.coffee" />
+    <Content Include="static\js\repository.coffee" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml">
+      <LastGenOutput>Index.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Address.cshtml">
+      <LastGenOutput>_Address.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_CreatePerson.cshtml">
+      <LastGenOutput>_CreatePerson.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Case\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Quote\Index.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>14688</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:11578/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

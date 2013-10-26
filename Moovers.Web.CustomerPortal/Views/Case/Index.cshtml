@@ -1,0 +1,96 @@
+﻿@model Business.ViewModels.ClaimListModel
+@{
+    ViewBag.Title = "NewCase";
+}
+
+<div id="addcase-success-message">
+    Your case has successfully submit against your quotation.
+</div>
+
+
+@{
+    var lookup = Request.QueryString["lookup"];//ViewContext.RouteData.Values["lookup"];
+}
+
+
+<div class="container-add-claim">
+    <button type="button" class="btn add-claim" title="Add New Claim">Add New Claim</button>
+</div>
+<div class="Case-table-container">
+
+    <table id="claim-items" class="">
+        <tbody>
+        </tbody>
+    </table>
+
+</div>
+
+<div class="finalize-case">
+<input id="finalize-case"  class="btn" data-lookup="@lookup" type='button' value='Add Case' />
+</div>
+
+
+@using (Html.BeginModal("add-new-claim", "Add Claim", new { @style = "width:450px" }))
+{
+
+    using (Html.BeginForm("AddClaims", "Case", FormMethod.Post))
+    {
+    <div id="dailog-content">
+
+
+        <div class="Modal-header">
+            Add New Claim 
+        </div>
+        <div>
+
+            @Html.Label("Inventory", "Inventory", new { @style = "margin-bottom: 8px; font-weight:bold;" })
+            @Html.DropDownListFor(o => o.CustomerClaim.Inventroy, Business.ViewModels.ClaimListModel.InventoryList())
+            @Html.Label("Type", "Type", new { @style = "margin-bottom: 8px; font-weight:bold;" })
+            @Html.DropDownListFor(o => o.CustomerClaim.ClaimType, Model.ClaimTypes)
+
+
+            @Html.Label("detail", "Details", new { @style = "margin-bottom: 8px; font-weight:bold;" })
+            @Html.TextBoxFor(o => o.CustomerClaim.Remarks, null, new { @style = " width:100%; height:200px; overflow:scroll", required = "required", tabindex = 3, })
+
+
+        </div>
+
+        <div class="clearfix">
+            <div class="end-controls">
+                <input type="submit" class="btn" id="btnfirst" value="Cancel" />
+
+                <input type="submit" class="btn btn-primary" value="Save" id="btnproceed" />
+
+
+            </div>
+        </div>
+        <div>
+        </div>
+    </div>
+
+    }
+
+}
+
+
+<script type="text/javascript">
+    (function () {
+        var AddNewClaim = {
+            dialogs: { AddClaim: "#add-new-claim" },
+            init: function () {
+                Utility.initBase(this);
+                $(".add-claim").click(function () {
+                    var dialog = AddNewClaim.dialogs.AddClaim;
+
+                    dialog.modal("show");
+                });
+            }
+        };
+
+        $(function () {
+            AddNewClaim.init();
+            Case.init();
+        });
+    })();
+
+</script>

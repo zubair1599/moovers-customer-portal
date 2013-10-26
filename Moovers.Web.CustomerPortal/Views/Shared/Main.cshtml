@@ -1,0 +1,9 @@
+﻿@{
+    Layout = "~/Views/Shared/Base.cshtml";
+}
+
+@Html.Partial("_Header", new Business.ViewModels.HeaderModel(ViewBag.SingleFranchise, ViewBag.ParentMenu, ViewBag.WebQuoteUserID))
+
+<div id="content">
+    @RenderBody()
+</div>

@@ -1,0 +1,190 @@
+﻿@model Business.ViewModels.PersonAccountModel
+
+
+@using (Html.BeginForm("CreatePerson", "Accounts", FormMethod.Post, new { id = "person-account", @class = "form-horizontal add-account", autocomplete = "off" }))
+{
+ @Html.ValidationSummary()
+
+    <div class="page page1">
+        <div class="account-box">
+            <div class="title-bar">Account Information</div>
+            <div class="alert alert-error errors" style="margin-bottom: -1em; display: none;"></div>
+            <div class="alert alert-info account-custom-info" style="margin-bottom: -1em; display: none;"></div>
+
+            <div class="account-custom-form" style="display: none;"></div>
+
+            <input type="hidden" name="accountid" data-field="AccountID" />
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="subtitle-bar">&nbsp;</div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.Account.FirstName, "First Name", new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.Account.FirstName, new { required = "required" })
+
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.Account.LastName, "Last Name", new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.Account.LastName, new { required = "required" })
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.user_name, "User Name", new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.user_name, new { required = "required" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.password, "Password", new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.PasswordFor(m => m.password, new { required = "required" })
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.confirmpassword, "Confirm Password", new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.PasswordFor(m => m.confirmpassword, new { required = "required" })
+                        </div>
+                    </div>
+
+
+
+                    <div class="subtitle-bar">
+                        Phone Numbers
+                           
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.PrimaryPhone.Number, "Primary Phone", new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.PhoneBoxFor(m => m.PrimaryPhone.Number, new { data_errormessage = "Please enter a phone number", required = "required" })
+                            @Html.TextBoxFor(m => m.PrimaryPhone.Extension, null, new { @type = "tel", @class = "extension", placeholder = "Ext." })
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.SecondaryPhone.Number, "Secondary Phone", new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.PhoneBoxFor(m => m.SecondaryPhone.Number, new { data_errormessage = "Please enter a phone number", data_field = "SecondaryPhone.Number" })
+                            @Html.TextBoxFor(m => m.SecondaryPhone.Extension, null, new { @type = "tel", @class = "extension", placeholder = "Ext." })
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(m => m.FaxPhone.Number, "Fax", new { @class = "control-label" })
+                        <div class="controls">
+                            @Html.PhoneBoxFor(m => m.FaxPhone.Number, new { data_errormessage = "Please enter a phone number", data_field = "FaxPhone.Number" })
+                            @Html.TextBoxFor(m => m.FaxPhone.Extension, null, new { @type = "tel", @class = "extension", placeholder = "Ext." })
+                        </div>
+                    </div>
+
+                    <div class="subtitle-bar">
+                        Emails
+                           
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Primary Email</label>
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.PrimaryEmail.Email, new { @type = "email" })
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Secondary Email</label>
+                        <div class="controls">
+                            @Html.TextBoxFor(m => m.SecondaryEmail.Email, new { @type = "email" })
+                        </div>
+                    </div>
+                </div>
+                <!--span6-->
+                <div class="span6 address-container">
+                    <div class="subtitle-bar">
+                        Mailing Address
+                           
+                    </div>
+                    @*@Html.Partial("_Address", new Business.ViewModels.AddressModel(Business.Models.AddressType.Mailing, false))*@
+                     @{
+                         var Mailingaddressmodel =  new Business.ViewModels.AddressModel(Business.Models.AddressType.Mailing, false);
+                         var Billingaddressmodel = new Business.ViewModels.AddressModel(Business.Models.AddressType.Billing, false);
+                         if (Model != null)
+                         {
+                             Mailingaddressmodel.Address.City = Model.MailingAddress.City;
+                             Mailingaddressmodel.Address.Zip = Model.MailingAddress.Zip;
+                             Mailingaddressmodel.Address.Street1 = Model.MailingAddress.Street1;
+                             Mailingaddressmodel.Address.Street2 = Model.MailingAddress.Street2;
+                             Mailingaddressmodel.Address.State = Model.MailingAddress.State;
+
+                             Billingaddressmodel.Address.City = Model.BillingAddress.City;
+                             Billingaddressmodel.Address.Zip = Model.BillingAddress.Zip;
+                             Billingaddressmodel.Address.Street1 = Model.BillingAddress.Street1;
+                             Billingaddressmodel.Address.Street2 = Model.BillingAddress.Street2;
+                             Billingaddressmodel.Address.State = Model.BillingAddress.State;
+                             
+                         }
+                        
+                        
+                         }
+                    @Html.Partial("_Address" , Mailingaddressmodel)
+
+                    <div class="subtitle-bar">
+                        Billing Address
+                       
+                        <span class="mailing">Same as Mailing 
+                           
+                            @Html.CheckBoxFor(m => m.CopyMailing, new { @class = "copy-mailing", value = "true" })
+                        </span>
+                    </div>
+                    @Html.Partial("_Address", Billingaddressmodel)
+                </div>
+                <!--span6-->
+            </div>
+            <!--row-fluid-->
+
+            <div class="clearfix">
+                <div class="end-controls">
+                    @Html.AjaxLoader("account-loader", new { style = "margin-right: 10px; ", @class = "ajax-loader" })
+
+                    <button type="submit" class="btn btn-primary Next">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+            
+
+
+    <div class="page page2">
+        <div class="account-box">
+
+            <div class="row-fluid">
+                <div class="find-address-container">
+
+                    @*<div class="alert alert-error errors" style="margin-bottom: 1em; display: none;"></div>*@
+                    <div class="selected-address" style="display: none;">
+                        <div class="address">
+                            <label>
+                                <input type="radio" name="address-select" value="CURRENT_SELECTED" />
+                                <span id="selected-display"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="search-results">
+                        <div class="address-title">Verified Addresses</div>
+                        <div class="verified-address-container"></div>
+                        <div class="address-title">Unverified Addresses</div>
+                        <div class="unverified-address-container"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="end-controls">
+                    @Html.AjaxLoader("account-address-loader", new { style = "margin-right: 10px; ", @class = "ajax-loader" })
+                    <button type="button" class="btn btn-primary save-form">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
