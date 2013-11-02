@@ -40,6 +40,7 @@
     <JavaScriptFiles Include="$(ProjectDir)static/js/plugins/dateformat.js" />
     <JavaScriptFiles Include="$(ProjectDir)static/js/plugins/underscore.js" />
     <JavaScriptFiles Include="$(ProjectDir)static/js/plugins/jquery.js" />
+    <JavaScriptFiles Include="$(ProjectDir)static/js/plugins/jquery.form.js" />
     <JavaScriptFiles Include="$(ProjectDir)static/js/plugins/jquery.compat.js" />
     <JavaScriptFiles Include="$(ProjectDir)static/js/plugins/jquery-ui-1.10.2.custom.js" />
     <JavaScriptFiles Include="$(ProjectDir)static/js/plugins/civem.js" />
@@ -83,6 +84,7 @@
     <JavaScriptFiles Include="$(ProjectDir)static/js/posting-view.js" />
     <JavaScriptFiles Include="$(ProjectDir)static/js/home.js" />
     <JavaScriptFiles Include="$(ProjectDir)static/js/case.js" />
+    
     
   </ItemGroup>
 </Project>

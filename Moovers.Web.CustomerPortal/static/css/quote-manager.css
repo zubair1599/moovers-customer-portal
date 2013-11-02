@@ -630,7 +630,9 @@ input[type="color"]:focus,
   width: 135px; }
 
 #quote-table-container {
-  position: relative; }
+  position: relative; 
+
+}
 
 #quote-table-container-loading {
   position: absolute;

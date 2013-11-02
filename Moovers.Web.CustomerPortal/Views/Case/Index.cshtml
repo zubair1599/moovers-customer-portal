@@ -13,27 +13,63 @@
 }
 
 
+<div class="page-title-container clearfix">
+
+    <span class="page-title">Case Number: @Model.Caselookup</span>
+
+</div>
+
 <div class="container-add-claim">
     <button type="button" class="btn add-claim" title="Add New Claim">Add New Claim</button>
 </div>
 <div class="Case-table-container">
 
-    <table id="claim-items" class="">
+    <table id="claim-items" class="table-striped table-hover">
+        <thead>
+            <tr class="sort-col no-hover">
+                <th>Inventory</th>
+                <th>Claim Type</th>
+                <th>Remarks</th>
+                <th>Created</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
         <tbody>
+
+
+            @{
+                if (Model.Claim != null)
+                {
+
+                    foreach (var item in Model.Claim)
+                    {
+               
+                <tr>
+                    <td>@item.Inventroy</td>
+                    <td>@item.ClaimTypeDisplayName</td>
+                    <td>@item.Remarks</td>
+                    <td>@item.Created</td>
+                    <td><a class="edit-claim" data-id="@item.ClaimID" data-inventory="@item.Inventroy" data-remarks="@item.Remarks" data-claimtype="@item.ClaimType" href="#">Edit</a></td>
+                    <td><a class='remove-claim' href='#' data-id='@item.ClaimID'><i class='icon-remove'></i></a></td>
+                </tr>
+                    }
+                }
+            }
         </tbody>
     </table>
 
 </div>
 
-<div class="finalize-case">
-<input id="finalize-case"  class="btn" data-lookup="@lookup" type='button' value='Add Case' />
-</div>
+@*<div class="finalize-case">
+    <input id="finalize-case"  class="btn" data-lookup="@lookup" type='button' value='Finalize Case' />
+</div>*@
 
 
-@using (Html.BeginModal("add-new-claim", "Add Claim", new { @style = "width:450px" }))
+@using (Html.BeginModal("add-new-claim", "Add Claim", new { @style = "width:500px" }))
 {
 
-    using (Html.BeginForm("AddClaims", "Case", FormMethod.Post))
+    using (Html.BeginForm("AddClaims", "Case", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
     <div id="dailog-content">
 
@@ -43,21 +79,27 @@
         </div>
         <div>
 
+            @Html.Hidden("CaseId", Model.CaseId)
             @Html.Label("Inventory", "Inventory", new { @style = "margin-bottom: 8px; font-weight:bold;" })
-            @Html.DropDownListFor(o => o.CustomerClaim.Inventroy, Business.ViewModels.ClaimListModel.InventoryList())
+            @Html.TextAreaFor(o => o.CustomerClaim.Inventroy, new { @style = "width:100%", required = "required", id = "InventoryItems" })
             @Html.Label("Type", "Type", new { @style = "margin-bottom: 8px; font-weight:bold;" })
-            @Html.DropDownListFor(o => o.CustomerClaim.ClaimType, Model.ClaimTypes)
+            @Html.DropDownListFor(o => o.CustomerClaim.ClaimType, Model.ClaimTypes, new { @style = "width:100%" })
 
+            @Html.Label("", "Upload Image", new { @style = "margin-bottom: 8px; font-weight:bold;" })
+            <input type="file" id="file" name="file" style="width: 100%;" />
+
+            @Html.Label("", "Upload Image", new { @style = "margin-bottom: 8px; font-weight:bold;" })
+            <input type="file" id="file2" name="file2" style="width: 100%;" />
 
             @Html.Label("detail", "Details", new { @style = "margin-bottom: 8px; font-weight:bold;" })
-            @Html.TextBoxFor(o => o.CustomerClaim.Remarks, null, new { @style = " width:100%; height:200px; overflow:scroll", required = "required", tabindex = 3, })
+            @Html.TextBoxFor(o => o.CustomerClaim.Remarks, null, new { @style = " width:100%; height:80px; text-align:top; overflow:scroll", required = "required" })
 
 
         </div>
 
         <div class="clearfix">
             <div class="end-controls">
-                <input type="submit" class="btn" id="btnfirst" value="Cancel" />
+                <button type="button" class="btn cancel" title="Cancel" data-dismiss="modal">Cancel </button>
 
                 <input type="submit" class="btn btn-primary" value="Save" id="btnproceed" />
 
@@ -72,6 +114,56 @@
 
 }
 
+
+@using (Html.BeginModal("Edit-Claim", "Edit Claim", new { @style = "width:500px" }))
+{
+
+    using (Html.BeginForm("UpdateClaim", "Case", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+    <div id="dailog-content-edit">
+
+
+        <div class="Modal-header">
+            Edit Claim 
+        </div>
+        <div>
+
+            @Html.Hidden("CaseId", Model.CaseId)
+            @Html.Hidden("ClaimId", "", new { id = "ClaimId" })
+            @Html.Label("Inventory", "Inventory", new { @style = "margin-bottom: 8px; font-weight:bold;" })
+            @Html.TextAreaFor(o => o.CustomerClaim.Inventroy, new { @style = "width:100%", required = "required", id = "editInventoryItems" })
+            @Html.Label("Type", "Type", new { @style = "margin-bottom: 8px; font-weight:bold;" })
+            @Html.DropDownListFor(o => o.CustomerClaim.ClaimType, Model.ClaimTypes, new { @style = "width:100%", id = "editClaimType" })
+            <label id="InventoryImage1"></label>
+            @Html.Label("", "Upload Image", new { @style = "margin-bottom: 8px; font-weight:bold;" })
+            <input type="file" id="editfile" name="file" style="width: 100%;" />
+
+            <label id="InventoryImage2"></label>
+            @Html.Label("", "Upload Image", new { @style = "margin-bottom: 8px; font-weight:bold;" })
+            <input type="file" id="editfile2" name="file2" style="width: 100%;" />
+
+            @Html.Label("detail", "Details", new { @style = "margin-bottom: 8px; font-weight:bold;" })
+            @Html.TextBoxFor(o => o.CustomerClaim.Remarks, null, new { @style = " width:100%; height:80px; text-align:top; overflow:scroll", required = "required", id = "editRemarks" })
+
+
+        </div>
+
+        <div class="clearfix">
+            <div class="end-controls">
+                <button type="button" class="btn cancel" title="Cancel" data-dismiss="modal">Cancel </button>
+
+                <input type="submit" class="btn btn-primary" value="Update" id="btnupdate" />
+
+
+            </div>
+        </div>
+        <div>
+        </div>
+    </div>
+
+    }
+
+}
 
 <script type="text/javascript">
     (function () {

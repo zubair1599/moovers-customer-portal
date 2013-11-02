@@ -30,3 +30,4 @@
 /// <reference path="post.js" />
 /// <reference path="schedule.js" />
 /// <reference path="send-email.js" />
+/// <reference path="plugins/jquery.form.js" />
