@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{07274F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moovers.Web.CustomerPortal", "Moovers.Web.CustomerPortal\Moovers.Web.CustomerPortal.csproj", "{741431E2-8E33-40E7-8A3B-15D4D1B5F467}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{5737068B-218B-4BB8-A617-CC8EA7DDF5EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "..\..\Zubair_project\trunk\Moovers.Application\Business\Business.csproj", "{5737068B-218B-4BB8-A617-CC8EA7DDF5EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
