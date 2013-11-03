@@ -3,7 +3,7 @@
 
 @using (Html.BeginForm("CreatePerson", "Accounts", FormMethod.Post, new { id = "person-account", @class = "form-horizontal add-account", autocomplete = "off" }))
 {
- @Html.ValidationSummary()
+ 
 
     <div class="page page1">
         <div class="account-box">
@@ -13,7 +13,15 @@
 
             <div class="account-custom-form" style="display: none;"></div>
 
-            <input type="hidden" name="accountid" data-field="AccountID" />
+            @if (Model != null)
+            {
+                <input type="hidden" name="accountid" data-field="AccountID" value="@Model.Account.AccountID" />   
+            }
+            else
+            {
+                <input type="hidden" name="accountid" data-field="AccountID" />   
+            }
+
             <div class="row-fluid">
                 <div class="span6">
                     <div class="subtitle-bar">&nbsp;</div>
@@ -107,28 +115,28 @@
                            
                     </div>
                     @*@Html.Partial("_Address", new Business.ViewModels.AddressModel(Business.Models.AddressType.Mailing, false))*@
-                     @{
-                         var Mailingaddressmodel =  new Business.ViewModels.AddressModel(Business.Models.AddressType.Mailing, false);
-                         var Billingaddressmodel = new Business.ViewModels.AddressModel(Business.Models.AddressType.Billing, false);
-                         if (Model != null)
-                         {
-                             Mailingaddressmodel.Address.City = Model.MailingAddress.City;
-                             Mailingaddressmodel.Address.Zip = Model.MailingAddress.Zip;
-                             Mailingaddressmodel.Address.Street1 = Model.MailingAddress.Street1;
-                             Mailingaddressmodel.Address.Street2 = Model.MailingAddress.Street2;
-                             Mailingaddressmodel.Address.State = Model.MailingAddress.State;
+                    @{
+            var Mailingaddressmodel = new Business.ViewModels.AddressModel(Business.Models.AddressType.Mailing, false);
+            var Billingaddressmodel = new Business.ViewModels.AddressModel(Business.Models.AddressType.Billing, false);
+            if (Model != null)
+            {
+                Mailingaddressmodel.Address.City = Model.MailingAddress.City;
+                Mailingaddressmodel.Address.Zip = Model.MailingAddress.Zip;
+                Mailingaddressmodel.Address.Street1 = Model.MailingAddress.Street1;
+                Mailingaddressmodel.Address.Street2 = Model.MailingAddress.Street2;
+                Mailingaddressmodel.Address.State = Model.MailingAddress.State;
 
-                             Billingaddressmodel.Address.City = Model.BillingAddress.City;
-                             Billingaddressmodel.Address.Zip = Model.BillingAddress.Zip;
-                             Billingaddressmodel.Address.Street1 = Model.BillingAddress.Street1;
-                             Billingaddressmodel.Address.Street2 = Model.BillingAddress.Street2;
-                             Billingaddressmodel.Address.State = Model.BillingAddress.State;
-                             
-                         }
+                Billingaddressmodel.Address.City = Model.BillingAddress.City;
+                Billingaddressmodel.Address.Zip = Model.BillingAddress.Zip;
+                Billingaddressmodel.Address.Street1 = Model.BillingAddress.Street1;
+                Billingaddressmodel.Address.Street2 = Model.BillingAddress.Street2;
+                Billingaddressmodel.Address.State = Model.BillingAddress.State;
+
+            }
                         
                         
-                         }
-                    @Html.Partial("_Address" , Mailingaddressmodel)
+                    }
+                    @Html.Partial("_Address", Mailingaddressmodel)
 
                     <div class="subtitle-bar">
                         Billing Address

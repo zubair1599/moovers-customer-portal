@@ -141,8 +141,8 @@ window.Accounts = {
                 return;
             }
             else {
-                alert("me called");
-                window.location.href = "../";
+               // alert(SERVER.baseUrl);
+                window.location.href = SERVER.baseUrl;
             }
 
             form.find(".errors").empty().hide();

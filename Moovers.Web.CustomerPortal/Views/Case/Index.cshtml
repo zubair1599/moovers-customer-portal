@@ -15,7 +15,7 @@
 
 <div class="page-title-container clearfix">
 
-    <span class="page-title">Case Number: @Model.Caselookup</span>
+    <span class="page-title" style="margin-left:10px">Case Number: @Model.Caselookup</span>
 
 </div>
 
@@ -134,7 +134,7 @@
             @Html.TextAreaFor(o => o.CustomerClaim.Inventroy, new { @style = "width:100%", required = "required", id = "editInventoryItems" })
             @Html.Label("Type", "Type", new { @style = "margin-bottom: 8px; font-weight:bold;" })
             @Html.DropDownListFor(o => o.CustomerClaim.ClaimType, Model.ClaimTypes, new { @style = "width:100%", id = "editClaimType" })
-            <label id="InventoryImage1"></label>
+            <label id="InventoryImage1"> </label>
             @Html.Label("", "Upload Image", new { @style = "margin-bottom: 8px; font-weight:bold;" })
             <input type="file" id="editfile" name="file" style="width: 100%;" />
 
