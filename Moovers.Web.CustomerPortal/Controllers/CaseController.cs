@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -180,6 +181,8 @@ namespace MooversCRM.Controllers
         {
             var repo = new Business.Models.ClaimRespository();
             var modal = new Business.ViewModels.ClaimListModel();
+
+            var ImagebasePath = ConfigurationManager.AppSettings["InventoryImageVirtualPath"].ToString();
             List<Claim_Inventory_Items> lstClaimInventoryItems = new List<Claim_Inventory_Items>();
             IEnumerable<Claim_Inventory_Items> claiminventory = repo.Get(id).Claim_Inventory_Items;
             foreach (var item in claiminventory)
@@ -187,6 +190,7 @@ namespace MooversCRM.Controllers
                 Claim_Inventory_Items InventoryItem = new Claim_Inventory_Items();
                 InventoryItem.FileUploadControllerName = item.FileUploadControllerName;
                 InventoryItem.ImageOrignalName = item.ImageOrignalName;
+                InventoryItem.ClaimInventoryImage = ImagebasePath + item.Claim.Case.Lookup + "/" + item.ClaimInventoryImage;
                 lstClaimInventoryItems.Add(InventoryItem);
             }
 
