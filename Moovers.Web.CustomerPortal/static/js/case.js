@@ -81,7 +81,7 @@ window.Case = {
             var ajax = $.post(url, {id: id});
             ajax.success(function (resp) {
                 if (resp != null) {
-                    var imagesname = "Already Attached Images: ";
+                    var imagesname = "<b> Already Attached Images: </b> ";
                     $.each(resp, function (i, item) {
                         //if (item.FileUploadControllerName == 'file') {
                         //    $("#InventoryImage1").text(item.ImageOrignalName);
@@ -89,10 +89,11 @@ window.Case = {
                         //else {
                         //    $("#InventoryImage2").text(item.ImageOrignalName);
                         //}
-                        imagesname += item.ImageOrignalName + " , "
+                       // alert(item.ClaimInventoryImage);
+                        imagesname += '<a href="' + item.ClaimInventoryImage +'" target="_blank">' + item.ImageOrignalName + "</a> , "
                     });
                   imagesname =  imagesname.slice(0, -1);
-                    $("#InventoryImage1").text(imagesname);
+                    $("#InventoryImage1").html(imagesname);
                 }
 
             });
