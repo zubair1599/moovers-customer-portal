@@ -48,9 +48,9 @@ window.Case = {
         });
 
         $("#finalize-case").click(function () {
-            var lookup = $(this).data("lookup");
-            var url = SERVER.baseUrl + "Case/AddCase/"
-            var ajax = $.post(url, { lookup: lookup });
+            var id = $(this).data("id");
+            var url = SERVER.baseUrl + "Case/SubmitCase/"
+            var ajax = $.post(url, { CaseId: id });
             ajax.done(function (resp) {
                 window.location.href = SERVER.baseUrl + "Quote/"
                 //$("#addcase-success-message").show();
