@@ -32,7 +32,7 @@ namespace MooversCRM.Controllers
             var inventoryitems = repo.GetAccountByUserId(AspUserID);
             var rel = new Case
             {
-                Status = true,
+                Status =  (int)Business.ViewModels.CaseStatus.Pending,
                 Created = DateTime.Now,
                 Updated = DateTime.Now,
                 

@@ -19,7 +19,7 @@ namespace MooversCRM.Controllers
 
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Quote");
             }
 
             return View();
@@ -51,7 +51,7 @@ namespace MooversCRM.Controllers
                 FormsAuthentication.SetAuthCookie(username, rememberMe, "/");
             }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Quote");
         }
 
         public ActionResult Login()

@@ -61,9 +61,9 @@
 
 </div>
 
-@*<div class="finalize-case">
-    <input id="finalize-case"  class="btn" data-lookup="@lookup" type='button' value='Finalize Case' />
-</div>*@
+<div class="finalize-case">
+    <input id="finalize-case"  class="btn" data-id="@Model.CaseId" type='button' value='Submit Case' />
+</div>
 
 
 @using (Html.BeginModal("add-new-claim", "Add Claim", new { @style = "width:500px" }))

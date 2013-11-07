@@ -32,7 +32,7 @@ namespace MooversCRM.Controllers
 
                 var rel = new Case
                 {
-                    Status = true,
+                    Status = (int)Business.ViewModels.CaseStatus.Pending,
                     Created = DateTime.Now,
                     Updated = DateTime.Now,
                     QuoteID = quoteId,
@@ -196,6 +196,16 @@ namespace MooversCRM.Controllers
 
 
             return Content(Extensions.SerializeToJson(lstClaimInventoryItems), "text/json");
+        }
+
+        public ActionResult SubmitCase(Guid CaseId)
+        {
+            var caserepo = new Business.Models.CaseRepository();
+            var Case = caserepo.Get(CaseId);
+            Case.CaseSubmitStatus = true;
+            caserepo.Save();
+            return Json("Case Submit Successfully");
+        
         }
 
     }
