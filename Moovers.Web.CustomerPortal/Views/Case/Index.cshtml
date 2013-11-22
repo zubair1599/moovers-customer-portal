@@ -15,7 +15,7 @@
 
 <div class="page-title-container clearfix">
 
-    <span class="page-title" style="margin-left:10px">Case Number: @Model.Caselookup</span>
+    <span class="page-title" style="margin-left: 10px">Case Number: @Model.Caselookup</span>
 
 </div>
 
@@ -50,8 +50,12 @@
                     <td>@item.ClaimTypeDisplayName</td>
                     <td>@item.Remarks</td>
                     <td>@item.Created</td>
-                    <td><a class="edit-claim" data-id="@item.ClaimID" data-inventory="@item.Inventroy" data-remarks="@item.Remarks" data-claimtype="@item.ClaimType" href="#">Edit</a></td>
-                    <td><a class='remove-claim' href='#' data-id='@item.ClaimID'><i class='icon-remove'></i></a></td>
+                    @if (!Model.CaseSubmitStatus)
+                    {
+                        <td><a class="edit-claim" data-id="@item.ClaimID" data-inventory="@item.Inventroy" data-remarks="@item.Remarks" data-claimtype="@item.ClaimType" href="#">Edit</a></td>
+                        <td><a class='remove-claim' href='#' data-id='@item.ClaimID'><i class='icon-remove'></i></a></td>  
+                    }
+
                 </tr>
                     }
                 }
@@ -62,7 +66,7 @@
 </div>
 
 <div class="finalize-case">
-    <input id="finalize-case"  class="btn" data-id="@Model.CaseId" type='button' value='Submit Case' />
+    <input id="finalize-case"  class="@(Model.CaseSubmitStatus ? "disabled" : "") btn" data-id="@Model.CaseId" type='button' value='Submit Case' />
 </div>
 
 
@@ -80,8 +84,9 @@
         <div>
 
             @Html.Hidden("CaseId", Model.CaseId)
-            @Html.Label("Inventory", "Inventory", new { @style = "margin-bottom: 8px; font-weight:bold;" })
-            @Html.TextAreaFor(o => o.CustomerClaim.Inventroy, new { @style = "width:100%", required = "required", id = "InventoryItems" })
+            @*@Html.Label("Inventory", "Inventory", new { @style = "margin-bottom: 8px; font-weight:bold;" })*@
+            @Html.DropDownListFor(o=> o.CustomerClaim.Inventroy , Model.InventoryItems.AsEnumerable(), new { @style = "width:100%", required = "required", id = "InventoryItems" })
+            @*@Html.TextAreaFor(o => o.CustomerClaim.Inventroy, new { @style = "width:100%", required = "required", id = "InventoryItems" })*@
             @Html.Label("Type", "Type", new { @style = "margin-bottom: 8px; font-weight:bold;" })
             @Html.DropDownListFor(o => o.CustomerClaim.ClaimType, Model.ClaimTypes, new { @style = "width:100%" })
 
@@ -92,7 +97,7 @@
             <input type="file" id="file2" name="file2" style="width: 100%;" />
 
             @Html.Label("detail", "Details", new { @style = "margin-bottom: 8px; font-weight:bold;" })
-            @Html.TextAreaFor(o => o.CustomerClaim.Remarks,  new { @style = "width:100%; height:80px; text-align:top; overflow-y:scroll", required = "required" })
+            @Html.TextAreaFor(o => o.CustomerClaim.Remarks, new { @style = "width:100%; height:80px; text-align:top; overflow-y:scroll", required = "required" })
 
 
         </div>
@@ -131,10 +136,10 @@
             @Html.Hidden("CaseId", Model.CaseId)
             @Html.Hidden("ClaimId", "", new { id = "ClaimId" })
             @Html.Label("Inventory", "Inventory", new { @style = "margin-bottom: 8px; font-weight:bold;" })
-            @Html.TextAreaFor(o => o.CustomerClaim.Inventroy, new { @style = "width:100%", required = "required", id = "editInventoryItems" })
+            @Html.DropDownListFor(o=> o.CustomerClaim.Inventroy , Model.InventoryItems.AsEnumerable(), new { @style = "width:100%", required = "required", id = "editInventoryItems" })
             @Html.Label("Type", "Type", new { @style = "margin-bottom: 8px; font-weight:bold;" })
             @Html.DropDownListFor(o => o.CustomerClaim.ClaimType, Model.ClaimTypes, new { @style = "width:100%", id = "editClaimType" })
-            <label id="InventoryImage1"> </label>
+            <label id="InventoryImage1"></label>
             @Html.Label("", "Upload Image", new { @style = "margin-bottom: 8px; font-weight:bold;" })
             <input type="file" id="editfile" name="file" style="width: 100%;" />
 
@@ -143,7 +148,7 @@
             <input type="file" id="editfile2" name="file2" style="width: 100%;" />
 
             @Html.Label("detail", "Details", new { @style = "margin-bottom: 8px; font-weight:bold;" })
-            @Html.TextAreaFor(o => o.CustomerClaim.Remarks,  new { @style = " width:100%; height:80px; text-align:top; overflow-y:scroll", required = "required", id = "editRemarks" })
+            @Html.TextAreaFor(o => o.CustomerClaim.Remarks, new { @style = " width:100%; height:80px; text-align:top; overflow-y:scroll", required = "required", id = "editRemarks" })
 
 
         </div>

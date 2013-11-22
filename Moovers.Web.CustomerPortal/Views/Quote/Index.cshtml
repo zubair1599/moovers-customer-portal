@@ -7,7 +7,7 @@
 
     <div class="page-title-container clearfix">
         <span class="page-title">Quote List</span>
-        
+
     </div>
 
 </div>
@@ -33,7 +33,12 @@
                     <td>@item.Lookup</td>
                     <td>@item.MoveDate</td>
                     <td>@item.GetDisplayPrice()</td>
-                    @if (item.Cases.Count != 0)
+
+                    @if (item.Cases.Where(o => o.CaseSubmitStatus == true).Count() < 0)
+                    {
+                        <td>@Html.ActionLink("View Case", "Index", new { Controller = "Case", lookup = @item.Lookup })</td>
+                    }
+                    else if (item.Cases.Count != 0)
                     {
 		 
                         <td>@Html.ActionLink("Edit Case", "Index", new { Controller = "Case", lookup = @item.Lookup })</td>
@@ -41,7 +46,7 @@
                     else
                     {
                         <td>@Html.ActionLink("Add Case", "Index", new { Controller = "Case", lookup = @item.Lookup })</td>
-                                        
+
                     }
 
                 </tr>
@@ -51,33 +56,33 @@
     </table>
 </div>
 
-    <div class="row-fluid">
-        <div class="span12">
-            <div class="pagination">
-                <div class="show-qty">
-                    <span>Show:</span>
-                    <span><a data-qty="25" href="#">25</a></span>
-                    <span><a data-qty="50" href="#">50</a></span>
-                    <span><a data-qty="100" href="#">100</a></span>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="pagination">
+            <div class="show-qty">
+                <span>Show:</span>
+                <span><a data-qty="25" href="#">25</a></span>
+                <span><a data-qty="50" href="#">50</a></span>
+                <span><a data-qty="100" href="#">100</a></span>
+            </div>
+            <div class="page-stepper">
+                <div class="page-selector first-page inactive">
+                    <span>First</span>
                 </div>
-                <div class="page-stepper">
-                    <div class="page-selector first-page inactive">
-                        <span>First</span>
-                    </div>
-                    <div class="page-selector previous-page inactive">
-                        <span>Previous</span>
-                    </div>
-                    <span class="page-selector current-page"></span>
-                    <div class="page-selector next-page right">
-                        <span>Next</span>
-                    </div>
-                    <div class="page-selector last-page right">
-                        <span>Last</span>
-                    </div>
+                <div class="page-selector previous-page inactive">
+                    <span>Previous</span>
+                </div>
+                <span class="page-selector current-page"></span>
+                <div class="page-selector next-page right">
+                    <span>Next</span>
+                </div>
+                <div class="page-selector last-page right">
+                    <span>Last</span>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
 

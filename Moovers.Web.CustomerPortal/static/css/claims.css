@@ -198,7 +198,7 @@
     width: 97%;
     border:2px solid #DEDEDE;
     margin: 20px 0 20px 10px;
-    height: 435px;
+    height: 400px;
     overflow-y:scroll;
 }
 
@@ -209,6 +209,11 @@
     width: 97%;
     text-align: right;
     margin-right:10px;
+}
+
+#finalize-case .disabled
+{
+ display:none;   
 }
 
 
